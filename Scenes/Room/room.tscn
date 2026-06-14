@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c3an3jujvoi4c"]
+
+[ext_resource type="Script" uid="uid://bx0pn2pdtc62d" path="res://Scenes/Room/room.gd" id="1_gtrrj"]
+[ext_resource type="Texture2D" uid="uid://bgpt51bhaojtw" path="res://assets/Room Sprite.png" id="1_ogljc"]
+[ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
+[ext_resource type="PackedScene" uid="uid://cgt4l164p6raf" path="res://Scenes/Inyection/inyection.tscn" id="4_5c7ct"]
+[ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
+
+[node name="Room" type="Node2D" unique_id=779297191]
+script = ExtResource("1_gtrrj")
+
+[node name="RoomSprite" type="Sprite2D" parent="." unique_id=725364231]
+position = Vector2(160, 90)
+texture = ExtResource("1_ogljc")
+
+[node name="Jeringa" parent="." unique_id=1373762188 instance=ExtResource("2_8ln5v")]
+position = Vector2(214, -23)
+
+[node name="Inyection" parent="." unique_id=1857755230 instance=ExtResource("4_5c7ct")]
+position = Vector2(277, 40)
+color_modulate = Color(0.80192584, 0.16533625, 0.7539859, 1)
+efecto = "StrongVirus"
+
+[node name="Inyection2" parent="." unique_id=1344360878 instance=ExtResource("4_5c7ct")]
+position = Vector2(236, 40)
+color_modulate = Color(5.7756904e-07, 0.53509, 8.663535e-07, 1)
+efecto = "MagicVirus"
+
+[node name="Inyection3" parent="." unique_id=1564526849 instance=ExtResource("4_5c7ct")]
+position = Vector2(277, 84)
+color_modulate = Color(0.41680953, 0.71026164, 0.76187086, 1)
+efecto = "CurationVirus"
+
+[node name="Inyection4" parent="." unique_id=1183495043 instance=ExtResource("4_5c7ct")]
+position = Vector2(235, 83)
+color_modulate = Color(1, 0.7454546, 0.5401498, 1)
+efecto = "MagicVirus"
+
+[node name="Caja agujas" type="Node2D" parent="." unique_id=2015411999]
+
+[node name="Npc" parent="." unique_id=305684517 instance=ExtResource("5_vyol7")]
+position = Vector2(81, 115)
+
+[connection signal="set_effect" from="Jeringa" to="." method="_on_jeringa_set_effect"]
+[connection signal="insertar_en_jeringa" from="Inyection" to="." method="_on_inyection_insertar_en_jeringa"]
+[connection signal="insertar_en_jeringa" from="Inyection2" to="." method="_on_inyection_insertar_en_jeringa"]
+[connection signal="insertar_en_jeringa" from="Inyection3" to="." method="_on_inyection_insertar_en_jeringa"]
+[connection signal="insertar_en_jeringa" from="Inyection4" to="." method="_on_inyection_insertar_en_jeringa"]

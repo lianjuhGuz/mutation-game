@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cgt4l164p6raf"]
+
+[ext_resource type="Script" uid="uid://qooce3i5wl41" path="res://Scenes/Inyection/inyection.gd" id="1_jsm8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11x2b"]
+size = Vector2(28, 29)
+
+[node name="Inyection" type="Node2D" unique_id=1857755230]
+script = ExtResource("1_jsm8w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=891268795]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1984478530]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1017300043]
+position = Vector2(14, 14.5)
+shape = SubResource("RectangleShape2D_11x2b")
+
+[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="ColorRect/Area2D" to="." method="_on_area_2d_area_exited"]

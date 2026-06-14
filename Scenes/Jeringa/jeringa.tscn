@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://de4f7c6m5muxe"]
+
+[ext_resource type="Script" uid="uid://b8rp4dl7mtiqm" path="res://Scenes/Jeringa/jeringa.gd" id="1_iu4tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcc"]
+
+[node name="Jeringa" type="Node2D" unique_id=1373762188]
+top_level = true
+script = ExtResource("1_iu4tj")
+
+[node name="JeringaArea" type="Area2D" parent="." unique_id=39375673]
+collision_layer = 4
+
+[node name="ColorRect" type="ColorRect" parent="JeringaArea" unique_id=1767243073]
+offset_left = 14.0
+offset_top = -33.0
+offset_right = 30.0
+offset_bottom = -1.0
+rotation = 0.59099334
+
+[node name="ColorRect2" type="ColorRect" parent="JeringaArea" unique_id=1837254122]
+offset_left = 2.0
+offset_top = -2.999998
+offset_right = 5.840454
+offset_bottom = 8.643984
+rotation = 0.59099334
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JeringaArea" unique_id=949776597]
+shape = SubResource("RectangleShape2D_xxgcc")
+
+[connection signal="area_entered" from="JeringaArea" to="." method="_on_jeringa_area_area_entered"]
+[connection signal="area_exited" from="JeringaArea" to="." method="_on_jeringa_area_area_exited"]

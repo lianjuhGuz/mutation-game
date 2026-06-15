@@ -1,9 +1,10 @@
 extends Node2D
 class_name NPC
-@onready var color_rect: ColorRect = $ColorRect
+
+
+@onready var sprite: AnimatedSprite2D = $NPCArea/AnimatedSprite2D
 
 var jeringa_dentro: bool = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,17 +20,20 @@ func _process(delta: float) -> void:
 
 func añadir_efecto(efecto: String):
 	if efecto == "StrongVirus":
-		print("Strong Virus añadido")
-		color_rect.color = Color(0.0, 0.397, 0.0, 1.0)
+		var tween = get_tree().create_tween()
+		tween.tween_property(sprite, "self_modulate", Color(1.0, 0.0, 0.0, 1.0), 10)
+		print("strong virus añadido")
+		
 	elif efecto == "MagicVirus":
 		print("MagicVirus añadido")
-		color_rect.color = Color(0.607, 0.158, 0.134, 1.0)
+		var tween = get_tree().create_tween()
+		tween.tween_property(sprite, "scale", Vector2(0.3, 0.3), 10)
+		
 	elif efecto == "null":
 		print("le inyectaste al paciente puro aire, lo maste")
 		kill_npc()
 	else:
 		print("Otro virus fue añadido, santiago es gay")
-		color_rect.color = Color(0.797, 0.484, 0.085, 1.0)
 
 
 @warning_ignore("unused_parameter")

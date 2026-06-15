@@ -2,11 +2,13 @@ extends Node2D
 class_name Jeringa
 
 @onready var color_rect: ColorRect = $JeringaArea/ColorRect
-
-signal set_effect(efecto: String)
+@onready var jeringa_area: Area2D = $JeringaArea
 
 var efecto_actual: String = "null"
 var dentro: bool = false
+
+signal set_effect(efecto: String)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,9 +23,12 @@ func _process(_delta: float) -> void:
 		changue("null", Color(1.0, 1.0, 1.0, 1.0))
 		hide()
 	
-	#if not visible:
-		#print("está escondido")
-		
+	if not visible:
+		jeringa_area.hide()
+	
+	else:
+		jeringa_area.show()
+
 
 func changue(efecto: String, color: Color):
 	if efecto == "null":

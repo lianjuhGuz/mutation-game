@@ -18,6 +18,7 @@ animations = [{
 size = Vector2(74, 120.75)
 
 [node name="Npc" type="Node2D" unique_id=305684517]
+self_modulate = Color(0.8615085, 0.24886104, 0.44171184, 1)
 script = ExtResource("1_6bn5k")
 
 [node name="NPCArea" type="Area2D" parent="." unique_id=168271264]

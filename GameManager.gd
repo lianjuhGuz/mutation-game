@@ -4,9 +4,9 @@ var current_level: int = 1
 
 
 var health_points: float = 100
-var better_temperature: float 
-var current_temperature: float 
-
+var better_temperature: float  = 35
+var current_temperature_body: float = 33
+var current_temperature_air: float = 34
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

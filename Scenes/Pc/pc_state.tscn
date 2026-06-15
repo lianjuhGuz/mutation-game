@@ -22,20 +22,6 @@ bg_color = Color(0, 0, 0, 1)
 content_margin_left = 3.0
 content_margin_right = 3.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14bra"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r7nk"]
-content_margin_left = 3.0
-content_margin_right = 3.0
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m1xx"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-
 [node name="PcState" type="Node2D" unique_id=796834188]
 position = Vector2(116, 80)
 script = ExtResource("1_to2jp")
@@ -50,16 +36,16 @@ offset_bottom = 24.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Texture" unique_id=1245755619]
-offset_left = -5.0
+offset_left = -2.0
 offset_top = 19.0
-offset_right = 20.0
+offset_right = 23.0
 offset_bottom = 42.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Texture" unique_id=908023237]
 offset_left = -11.0
 offset_top = 36.0
-offset_right = 23.0
+offset_right = 29.0
 offset_bottom = 49.0
 color = Color(0, 0, 0, 1)
 
@@ -174,13 +160,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3f2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_emk06")
 text = "-"
 
-[node name="More" type="Button" parent="ColorRect4/VBoxContainer/Air/FirstFirst/First" unique_id=680799640]
+[node name="More" type="Button" parent="ColorRect4/VBoxContainer/Air/FirstFirst/First" unique_id=430465195]
+custom_minimum_size = Vector2(6.56, 7.61)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_14bra")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3r7nk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7m1xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_11dqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3f2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emk06")
 text = "+"
 
 [node name="Second" type="HBoxContainer" parent="ColorRect4/VBoxContainer/Air/FirstFirst" unique_id=736078980]
@@ -196,3 +183,6 @@ text = "Temperature: "
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "30 C"
+
+[connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/Less" to="." method="_on_less_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/More" to="." method="_on_more_pressed"]

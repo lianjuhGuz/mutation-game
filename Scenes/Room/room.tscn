@@ -3,17 +3,94 @@
 [ext_resource type="Script" uid="uid://bx0pn2pdtc62d" path="res://Scenes/Room/room.gd" id="1_gtrrj"]
 [ext_resource type="Texture2D" uid="uid://bgpt51bhaojtw" path="res://assets/Room Sprite.png" id="1_ogljc"]
 [ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
-[ext_resource type="PackedScene" uid="uid://cgt4l164p6raf" path="res://Scenes/Inyection/inyection.tscn" id="4_5c7ct"]
 [ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
+[ext_resource type="Texture2D" uid="uid://dj353pf4nh7sc" path="res://assets/box.png" id="6_36na4"]
 [ext_resource type="Script" uid="uid://bhtr5n58khula" path="res://Scenes/Room/set_jeringa.gd" id="6_rsgts"]
+[ext_resource type="Texture2D" uid="uid://bwwdapt0en3df" path="res://assets/papper.png" id="7_kadeg"]
 [ext_resource type="Script" uid="uid://dvdb3dqci6g1h" path="res://Scenes/Room/trash.gd" id="7_sclbd"]
+[ext_resource type="Texture2D" uid="uid://cj3ptyl1fluig" path="res://assets/jeringaBase.png" id="8_1elsv"]
 [ext_resource type="Texture2D" uid="uid://c3emkjahljwwe" path="res://assets/TrashSprite.png" id="8_36na4"]
+[ext_resource type="Script" uid="uid://df2dvhlfdgidb" path="res://Scenes/Room/camera_2d.gd" id="11_1elsv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vyol7"]
-radius = 15.033297
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n3fp"]
+size = Vector2(56, 56)
+
+[sub_resource type="Animation" id="Animation_1elsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kadeg"]
+resource_name = "use_box"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.805, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1elsv"]
+_data = {
+&"RESET": SubResource("Animation_1elsv"),
+&"use_box": SubResource("Animation_kadeg")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsgts"]
 size = Vector2(45, 61.5)
+
+[sub_resource type="Animation" id="Animation_36na4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrashSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3n3fp"]
+resource_name = "Use"
+length = 0.26666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrashSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.78)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kadeg"]
+_data = {
+&"RESET": SubResource("Animation_36na4"),
+&"Use": SubResource("Animation_3n3fp")
+}
 
 [node name="Room" type="Node2D" unique_id=779297191]
 script = ExtResource("1_gtrrj")
@@ -22,28 +99,16 @@ script = ExtResource("1_gtrrj")
 position = Vector2(160, 90)
 texture = ExtResource("1_ogljc")
 
+[node name="RoomSprite2" type="Sprite2D" parent="." unique_id=974641644]
+position = Vector2(479, 90)
+texture = ExtResource("1_ogljc")
+
+[node name="RoomSprite3" type="Sprite2D" parent="." unique_id=1018931300]
+position = Vector2(-158, 90)
+texture = ExtResource("1_ogljc")
+
 [node name="Jeringa" parent="." unique_id=1373762188 instance=ExtResource("2_8ln5v")]
 position = Vector2(214, -23)
-
-[node name="Inyection" parent="." unique_id=1857755230 instance=ExtResource("4_5c7ct")]
-position = Vector2(277, 40)
-color_modulate = Color(0.80192584, 0.16533625, 0.7539859, 1)
-efecto = "StrongVirus"
-
-[node name="Inyection2" parent="." unique_id=1344360878 instance=ExtResource("4_5c7ct")]
-position = Vector2(236, 40)
-color_modulate = Color(5.7756904e-07, 0.53509, 8.663535e-07, 1)
-efecto = "MagicVirus"
-
-[node name="Inyection3" parent="." unique_id=1564526849 instance=ExtResource("4_5c7ct")]
-position = Vector2(277, 84)
-color_modulate = Color(0.41680953, 0.71026164, 0.76187086, 1)
-efecto = "CurationVirus"
-
-[node name="Inyection4" parent="." unique_id=1183495043 instance=ExtResource("4_5c7ct")]
-position = Vector2(235, 83)
-color_modulate = Color(1, 0.7454546, 0.5401498, 1)
-efecto = "MagicVirus"
 
 [node name="Caja agujas" type="Node2D" parent="." unique_id=2015411999]
 
@@ -51,23 +116,34 @@ efecto = "MagicVirus"
 position = Vector2(147, 66)
 
 [node name="SetJeringa" type="Area2D" parent="." unique_id=390342974]
+position = Vector2(603, 153)
 script = ExtResource("6_rsgts")
 
-[node name="ColorRect" type="ColorRect" parent="SetJeringa" unique_id=941787375]
-offset_left = 257.0
-offset_top = 120.99999
-offset_right = 283.30508
-offset_bottom = 145.24075
-rotation = 0.82030475
-mouse_filter = 2
-color = Color(0.5099702, 0.25615066, 0.093219854, 1)
+[node name="Box" type="Sprite2D" parent="SetJeringa" unique_id=1436691683]
+position = Vector2(6.3449707, -3)
+texture = ExtResource("6_36na4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SetJeringa" unique_id=670898426]
-position = Vector2(258, 139)
-shape = SubResource("CircleShape2D_vyol7")
+position = Vector2(6.3449707, -3)
+shape = SubResource("RectangleShape2D_3n3fp")
+
+[node name="Papper" type="Sprite2D" parent="SetJeringa" unique_id=1028052937]
+position = Vector2(6.3449707, -3)
+rotation = 0.44854963
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("7_kadeg")
+
+[node name="JeringaBase" type="Sprite2D" parent="SetJeringa/Papper" unique_id=1902866170]
+modulate = Color(1, 1, 1, 0.54509807)
+position = Vector2(0, 5)
+scale = Vector2(1.2926478, 1.3319765)
+texture = ExtResource("8_1elsv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SetJeringa" unique_id=729577741]
+libraries/ = SubResource("AnimationLibrary_1elsv")
 
 [node name="Trash" type="Area2D" parent="." unique_id=1083091508]
-position = Vector2(29, 136)
+position = Vector2(345, 155)
 collision_mask = 4
 script = ExtResource("7_sclbd")
 
@@ -79,11 +155,18 @@ texture = ExtResource("8_36na4")
 position = Vector2(-1, -7)
 shape = SubResource("RectangleShape2D_rsgts")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trash" unique_id=980658367]
+libraries/ = SubResource("AnimationLibrary_kadeg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1483917453]
+position = Vector2(157, 90)
+limit_left = -318
+limit_top = 0
+limit_right = 638
+limit_bottom = 180
+script = ExtResource("11_1elsv")
+
 [connection signal="set_effect" from="Jeringa" to="." method="_on_jeringa_set_effect"]
-[connection signal="insertar_en_jeringa" from="Inyection" to="." method="_on_inyection_insertar_en_jeringa"]
-[connection signal="insertar_en_jeringa" from="Inyection2" to="." method="_on_inyection_insertar_en_jeringa"]
-[connection signal="insertar_en_jeringa" from="Inyection3" to="." method="_on_inyection_insertar_en_jeringa"]
-[connection signal="insertar_en_jeringa" from="Inyection4" to="." method="_on_inyection_insertar_en_jeringa"]
 [connection signal="mouse_entered" from="SetJeringa" to="SetJeringa" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SetJeringa" to="SetJeringa" method="_on_mouse_exited"]
 [connection signal="area_entered" from="Trash" to="Trash" method="_on_area_entered"]

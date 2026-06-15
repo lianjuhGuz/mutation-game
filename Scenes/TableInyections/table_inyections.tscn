@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dlmtg3i44fyo2"]
+
+[ext_resource type="Texture2D" uid="uid://bjihgx2vxhak4" path="res://assets/table.png" id="1_lk2dl"]
+
+[node name="TableInyections" type="Node2D" unique_id=1464634949]
+scale = Vector2(0.73, 0.73)
+
+[node name="Table" type="Sprite2D" parent="." unique_id=1749036796]
+position = Vector2(309.58902, 178.08218)
+texture = ExtResource("1_lk2dl")

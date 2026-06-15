@@ -1,8 +1,6 @@
 extends Node
 
 var current_level: int = 1
-
-
 var health_points: float = 100
 var better_temperature: float  = 35
 var current_temperature_body: float = 33

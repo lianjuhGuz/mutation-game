@@ -21,14 +21,14 @@ func _process(_delta: float) -> void:
 		print("Clic presionado y esa vaina dentro")
 		print("efecto generado: ", efecto)
 		insertar_en_jeringa.emit(efecto, color_modulate)
-		
-	
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("area entrada: ", area.name)
 	if area.name == "JeringaArea" and area.visible:
 		dentro = true
 		print("Dentro? ", dentro, "Visible? ")
+
 
 @warning_ignore("unused_parameter")
 func _on_area_2d_area_exited(area: Area2D) -> void:

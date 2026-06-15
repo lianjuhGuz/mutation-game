@@ -17,6 +17,7 @@ func _on_area_2d_mouse_entered() -> void:
 	print("mouse entró")
 	color_rect.color = Color(1.0, 0.0, 0.0, 1.0)
 
+
 func _on_area_2d_mouse_exited() -> void:
 	print("mouse salió")
 	color_rect.color = Color(0.318, 0.601, 0.487, 1.0)

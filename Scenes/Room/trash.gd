@@ -1,8 +1,10 @@
 extends Area2D
 class_name Trash
 
-@onready var color_rect: ColorRect = $ColorRect
+@onready var trash_sprite: Sprite2D = $TrashSprite
 @onready var jeringa: Jeringa = $"../Jeringa"
+@onready var animation: AnimationPlayer = $AnimationPlayer
+
 var dentro: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -13,10 +15,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and jeringa.visible:
 		jeringa.hide()
 		jeringa.changue("null", Color(1.0, 1.0, 1.0, 1.0))
-
+		animation.play("Use")
+		await animation.animation_finished
+		animation.play_backwards("Use")
 
 func _on_area_entered(area: Area2D) -> void:
 	print("area entrada:", area)

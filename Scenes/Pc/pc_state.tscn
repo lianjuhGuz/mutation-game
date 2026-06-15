@@ -179,7 +179,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "Temperature: "
 
-[node name="Label3" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=1131150319]
+[node name="TemperatureAir" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=1131150319]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "30 C"

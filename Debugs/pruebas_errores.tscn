@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c1gp4ntdmov1q"]
+
+[ext_resource type="Script" uid="uid://dvdf5mambk55s" path="res://Debugs/pruebas_errores.gd" id="1_0am42"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fd2ub"]
+radius = 15.0
+
+[node name="PruebasErrores" type="Node2D" unique_id=690031234]
+script = ExtResource("1_0am42")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1301822704]
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=2147231439]
+offset_left = 143.0
+offset_top = 59.0
+offset_right = 170.0
+offset_bottom = 85.0
+mouse_filter = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=23902984]
+position = Vector2(157, 72)
+shape = SubResource("CircleShape2D_fd2ub")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

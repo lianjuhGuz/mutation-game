@@ -5,22 +5,30 @@ class_name Jeringa
 
 signal set_effect(efecto: String)
 
-var efecto_actual
+var efecto_actual: String = "null"
 var dentro: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
+ 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
-	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and efecto_actual != null:
+	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and efecto_actual != null and visible:
 		set_effect.emit(efecto_actual)
-
+		changue("null", Color(1.0, 1.0, 1.0, 1.0))
+		hide()
+	
+	#if not visible:
+		#print("está escondido")
+		
 
 func changue(efecto: String, color: Color):
+	if efecto == "null":
+		color_rect.color = Color(1.0, 1.0, 1.0, 1.0)
+	
 	color_rect.color = color
 	efecto_actual = efecto
 

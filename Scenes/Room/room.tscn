@@ -5,6 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
 [ext_resource type="PackedScene" uid="uid://cgt4l164p6raf" path="res://Scenes/Inyection/inyection.tscn" id="4_5c7ct"]
 [ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
+[ext_resource type="Script" uid="uid://bhtr5n58khula" path="res://Scenes/Room/set_jeringa.gd" id="6_rsgts"]
+[ext_resource type="Script" uid="uid://dvdb3dqci6g1h" path="res://Scenes/Room/trash.gd" id="7_sclbd"]
+[ext_resource type="Texture2D" uid="uid://c3emkjahljwwe" path="res://assets/TrashSprite.png" id="8_36na4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyol7"]
+radius = 15.033297
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsgts"]
+size = Vector2(45, 61.5)
 
 [node name="Room" type="Node2D" unique_id=779297191]
 script = ExtResource("1_gtrrj")
@@ -39,10 +48,43 @@ efecto = "MagicVirus"
 [node name="Caja agujas" type="Node2D" parent="." unique_id=2015411999]
 
 [node name="Npc" parent="." unique_id=305684517 instance=ExtResource("5_vyol7")]
-position = Vector2(81, 115)
+position = Vector2(147, 66)
+
+[node name="SetJeringa" type="Area2D" parent="." unique_id=390342974]
+script = ExtResource("6_rsgts")
+
+[node name="ColorRect" type="ColorRect" parent="SetJeringa" unique_id=941787375]
+offset_left = 257.0
+offset_top = 120.99999
+offset_right = 283.30508
+offset_bottom = 145.24075
+rotation = 0.82030475
+mouse_filter = 2
+color = Color(0.5099702, 0.25615066, 0.093219854, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SetJeringa" unique_id=670898426]
+position = Vector2(258, 139)
+shape = SubResource("CircleShape2D_vyol7")
+
+[node name="Trash" type="Area2D" parent="." unique_id=1083091508]
+position = Vector2(29, 136)
+collision_mask = 4
+script = ExtResource("7_sclbd")
+
+[node name="TrashSprite" type="Sprite2D" parent="Trash" unique_id=470301834]
+position = Vector2(-1, -7)
+texture = ExtResource("8_36na4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash" unique_id=338875070]
+position = Vector2(-1, -7)
+shape = SubResource("RectangleShape2D_rsgts")
 
 [connection signal="set_effect" from="Jeringa" to="." method="_on_jeringa_set_effect"]
 [connection signal="insertar_en_jeringa" from="Inyection" to="." method="_on_inyection_insertar_en_jeringa"]
 [connection signal="insertar_en_jeringa" from="Inyection2" to="." method="_on_inyection_insertar_en_jeringa"]
 [connection signal="insertar_en_jeringa" from="Inyection3" to="." method="_on_inyection_insertar_en_jeringa"]
 [connection signal="insertar_en_jeringa" from="Inyection4" to="." method="_on_inyection_insertar_en_jeringa"]
+[connection signal="mouse_entered" from="SetJeringa" to="SetJeringa" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SetJeringa" to="SetJeringa" method="_on_mouse_exited"]
+[connection signal="area_entered" from="Trash" to="Trash" method="_on_area_entered"]
+[connection signal="area_exited" from="Trash" to="Trash" method="_on_area_exited"]

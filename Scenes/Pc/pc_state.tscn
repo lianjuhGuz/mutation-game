@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://b3h46grt7by5x"]
+
+[ext_resource type="Script" uid="uid://4rncjep00jyr" path="res://Scenes/Pc/pc_state.gd" id="1_to2jp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgyfw"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to2jp"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11dqd"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj3f2"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emk06"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14bra"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r7nk"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m1xx"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+
+[node name="PcState" type="Node2D" unique_id=796834188]
+position = Vector2(116, 80)
+script = ExtResource("1_to2jp")
+
+[node name="Texture" type="Node2D" parent="." unique_id=123257286]
+
+[node name="ColorRect" type="ColorRect" parent="Texture" unique_id=1543872796]
+offset_left = -40.0
+offset_top = -36.0
+offset_right = 60.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Texture" unique_id=1245755619]
+offset_left = -5.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 42.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Texture" unique_id=908023237]
+offset_left = -11.0
+offset_top = 36.0
+offset_right = 23.0
+offset_bottom = 49.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=789994505]
+offset_left = -35.0
+offset_top = -30.0
+offset_right = 35.0
+offset_bottom = 9.0
+scale = Vector2(1.28, 1.28)
+color = Color(0, 0, 0.81960785, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4" unique_id=692980382]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 70.0
+offset_bottom = 39.0
+theme_override_constants/separation = 2
+
+[node name="BodyCurrent" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=1741031458]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/BodyCurrent" unique_id=1842415848]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Body Temperature:"
+
+[node name="CurrentTemperature" type="Label" parent="ColorRect4/VBoxContainer/BodyCurrent" unique_id=605458473]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"
+
+[node name="Body ideal" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=1379192098]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Body ideal" unique_id=1170184049]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Ideal Temperature:"
+
+[node name="IdealTemperature" type="Label" parent="ColorRect4/VBoxContainer/Body ideal" unique_id=680726981]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"
+
+[node name="Health" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=102116359]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Health" unique_id=1408217947]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Health:"
+
+[node name="ProgressHealth" type="ProgressBar" parent="ColorRect4/VBoxContainer/Health" unique_id=866078489]
+custom_minimum_size = Vector2(36.74, 0.09)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
+max_value = 1.0
+value = 0.67
+
+[node name="Cordure" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=766620734]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Cordure" unique_id=1624422252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Cordure:"
+
+[node name="ProgressCordure" type="ProgressBar" parent="ColorRect4/VBoxContainer/Cordure" unique_id=197143211]
+custom_minimum_size = Vector2(36.79, 0.09)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
+max_value = 1.0
+value = 0.67
+
+[node name="Air" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=317100226]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Air" unique_id=1471640404]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Air:"
+
+[node name="FirstFirst" type="HBoxContainer" parent="ColorRect4/VBoxContainer/Air" unique_id=1726812025]
+layout_mode = 2
+
+[node name="First" type="HBoxContainer" parent="ColorRect4/VBoxContainer/Air/FirstFirst" unique_id=916119254]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Less" type="Button" parent="ColorRect4/VBoxContainer/Air/FirstFirst/First" unique_id=350048067]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_11dqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3f2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emk06")
+text = "-"
+
+[node name="More" type="Button" parent="ColorRect4/VBoxContainer/Air/FirstFirst/First" unique_id=680799640]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_14bra")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3r7nk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7m1xx")
+text = "+"
+
+[node name="Second" type="HBoxContainer" parent="ColorRect4/VBoxContainer/Air/FirstFirst" unique_id=736078980]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=279112927]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Temperature: "
+
+[node name="Label3" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=1131150319]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"

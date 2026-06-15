@@ -3,9 +3,12 @@ extends Node2D
 @onready var jeringa: Node2D = $Jeringa
 @onready var npc: NPC = $Npc
 
+var cursor_image = load("res://assets/cursorCustom.png")
+
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.set_custom_mouse_cursor(cursor_image)
 	print(Input.MOUSE_MODE_HIDDEN)
+
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:

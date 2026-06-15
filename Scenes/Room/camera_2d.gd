@@ -42,5 +42,5 @@ func _process(delta: float) -> void:
 		num_movimiento = 0
 	
 	target_right = Vector2(self.global_position.x + 320, self.global_position.y )
-	target_left = Vector2(self.global_position.x - 314, self.global_position.y )
+	target_left = Vector2(self.global_position.x - 320, self.global_position.y )
 	

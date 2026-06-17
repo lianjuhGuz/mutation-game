@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and jeringa.visible:
 		jeringa.hide()
-		jeringa.changue("null", Color(1.0, 1.0, 1.0, 1.0))
+		jeringa.changue("null")
 		animation.play("Use")
 		await animation.animation_finished
 		animation.play_backwards("Use")

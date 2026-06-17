@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b3h46grt7by5x"]
 
 [ext_resource type="Script" uid="uid://4rncjep00jyr" path="res://Scenes/Pc/pc_state.gd" id="1_to2jp"]
+[ext_resource type="Texture2D" uid="uid://21e07ievg8vk" path="res://assets/textures/mapa/computador.png" id="2_11dqd"]
+[ext_resource type="Shader" uid="uid://ck0kkbnyyqphc" path="res://Scenes/Pc/pc_state.gdshader" id="3_emk06"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgyfw"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,34 +24,179 @@ bg_color = Color(0, 0, 0, 1)
 content_margin_left = 3.0
 content_margin_right = 3.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bj3f2"]
+shader = ExtResource("3_emk06")
+shader_parameter/overlay = false
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/brightness = -7.47
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/aberration = 0.03
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = true
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="PcState" type="Node2D" unique_id=796834188]
 position = Vector2(116, 80)
 script = ExtResource("1_to2jp")
 
+[node name="Computador" type="Sprite2D" parent="." unique_id=1250845778]
+position = Vector2(33.000004, 23.500004)
+scale = Vector2(2.440678, 2.2407408)
+texture = ExtResource("2_11dqd")
+
 [node name="Texture" type="Node2D" parent="." unique_id=123257286]
 
-[node name="ColorRect" type="ColorRect" parent="Texture" unique_id=1543872796]
-offset_left = -40.0
-offset_top = -36.0
-offset_right = 60.0
-offset_bottom = 24.0
-color = Color(0, 0, 0, 1)
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=7820702]
+offset_left = -35.0
+offset_top = -30.0
+offset_right = 35.0
+offset_bottom = 9.0
+scale = Vector2(1.28, 1.28)
+color = Color(0, 0, 0.81960785, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Texture" unique_id=1245755619]
-offset_left = -2.0
-offset_top = 19.0
-offset_right = 23.0
-offset_bottom = 42.0
-color = Color(0, 0, 0, 1)
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect5" unique_id=1014746569]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -0.78125
+offset_right = 71.09375
+offset_bottom = 39.0
+theme_override_constants/separation = 2
 
-[node name="ColorRect3" type="ColorRect" parent="Texture" unique_id=908023237]
-offset_left = -11.0
-offset_top = 36.0
-offset_right = 29.0
-offset_bottom = 49.0
-color = Color(0, 0, 0, 1)
+[node name="BodyCurrent" type="HBoxContainer" parent="ColorRect5/VBoxContainer" unique_id=699242942]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect5/VBoxContainer/BodyCurrent" unique_id=233086593]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Body Temperature:"
+
+[node name="CurrentTemperature" type="Label" parent="ColorRect5/VBoxContainer/BodyCurrent" unique_id=374954840]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"
+
+[node name="Body ideal" type="HBoxContainer" parent="ColorRect5/VBoxContainer" unique_id=621812436]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect5/VBoxContainer/Body ideal" unique_id=965793282]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Ideal Temperature:"
+
+[node name="IdealTemperature" type="Label" parent="ColorRect5/VBoxContainer/Body ideal" unique_id=754285157]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"
+
+[node name="Health" type="HBoxContainer" parent="ColorRect5/VBoxContainer" unique_id=1389454723]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="ColorRect5/VBoxContainer/Health" unique_id=1144274179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Health:"
+
+[node name="ProgressHealth" type="ProgressBar" parent="ColorRect5/VBoxContainer/Health" unique_id=1475289201]
+custom_minimum_size = Vector2(36.74, 0.09)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
+max_value = 1.0
+value = 0.67
+
+[node name="Cordure" type="HBoxContainer" parent="ColorRect5/VBoxContainer" unique_id=233510434]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect5/VBoxContainer/Cordure" unique_id=830231916]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Cordure:"
+
+[node name="ProgressCordure" type="ProgressBar" parent="ColorRect5/VBoxContainer/Cordure" unique_id=1466967770]
+custom_minimum_size = Vector2(36.79, 0.09)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
+max_value = 1.0
+value = 0.67
+
+[node name="Air" type="HBoxContainer" parent="ColorRect5/VBoxContainer" unique_id=2041116816]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Label" type="Label" parent="ColorRect5/VBoxContainer/Air" unique_id=283106530]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Air:"
+
+[node name="FirstFirst" type="HBoxContainer" parent="ColorRect5/VBoxContainer/Air" unique_id=243904882]
+layout_mode = 2
+
+[node name="First" type="HBoxContainer" parent="ColorRect5/VBoxContainer/Air/FirstFirst" unique_id=455478704]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Less" type="Button" parent="ColorRect5/VBoxContainer/Air/FirstFirst/First" unique_id=294473050]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_11dqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3f2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emk06")
+text = "-"
+
+[node name="More" type="Button" parent="ColorRect5/VBoxContainer/Air/FirstFirst/First" unique_id=879489089]
+custom_minimum_size = Vector2(6.56, 7.61)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_11dqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3f2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emk06")
+text = "+"
+
+[node name="Second" type="HBoxContainer" parent="ColorRect5/VBoxContainer/Air/FirstFirst" unique_id=523252834]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="ColorRect5/VBoxContainer/Air/FirstFirst/Second" unique_id=404982011]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Temperature: "
+
+[node name="TemperatureAir" type="Label" parent="ColorRect5/VBoxContainer/Air/FirstFirst/Second" unique_id=1859237325]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "30 C"
 
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=789994505]
+material = SubResource("ShaderMaterial_bj3f2")
 offset_left = -35.0
 offset_top = -30.0
 offset_right = 35.0
@@ -61,7 +208,8 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4" unique_id=692980382]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 70.0
+offset_top = -0.78125
+offset_right = 71.09375
 offset_bottom = 39.0
 theme_override_constants/separation = 2
 
@@ -184,5 +332,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "30 C"
 
+[connection signal="pressed" from="ColorRect5/VBoxContainer/Air/FirstFirst/First/Less" to="." method="_on_less_pressed"]
+[connection signal="pressed" from="ColorRect5/VBoxContainer/Air/FirstFirst/First/More" to="." method="_on_more_pressed"]
 [connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/Less" to="." method="_on_less_pressed"]
 [connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/More" to="." method="_on_more_pressed"]

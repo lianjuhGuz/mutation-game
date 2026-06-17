@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bx0pn2pdtc62d" path="res://Scenes/Room/room.gd" id="1_gtrrj"]
 [ext_resource type="Texture2D" uid="uid://bgpt51bhaojtw" path="res://assets/Room Sprite.png" id="1_ogljc"]
 [ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
+[ext_resource type="PackedScene" uid="uid://dlmtg3i44fyo2" path="res://Scenes/TableInyections/table_inyections.tscn" id="3_2etwf"]
+[ext_resource type="PackedScene" uid="uid://b3h46grt7by5x" path="res://Scenes/Pc/pc_state.tscn" id="5_l3uah"]
 [ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
 [ext_resource type="Texture2D" uid="uid://dj353pf4nh7sc" path="res://assets/box.png" id="6_36na4"]
 [ext_resource type="Script" uid="uid://bhtr5n58khula" path="res://Scenes/Room/set_jeringa.gd" id="6_rsgts"]
@@ -11,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cj3ptyl1fluig" path="res://assets/jeringaBase.png" id="8_1elsv"]
 [ext_resource type="Texture2D" uid="uid://c3emkjahljwwe" path="res://assets/TrashSprite.png" id="8_36na4"]
 [ext_resource type="Script" uid="uid://df2dvhlfdgidb" path="res://Scenes/Room/camera_2d.gd" id="11_1elsv"]
+[ext_resource type="Texture2D" uid="uid://bew0adol0q531" path="res://assets/textures/mapa/mesa antiguo.png" id="13_tvqiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n3fp"]
 size = Vector2(56, 56)
@@ -103,9 +106,20 @@ texture = ExtResource("1_ogljc")
 position = Vector2(479, 90)
 texture = ExtResource("1_ogljc")
 
+[node name="TableInyections" parent="RoomSprite2" unique_id=1464634949 instance=ExtResource("3_2etwf")]
+position = Vector2(-3, 26)
+
 [node name="RoomSprite3" type="Sprite2D" parent="." unique_id=1018931300]
 position = Vector2(-158, 90)
 texture = ExtResource("1_ogljc")
+
+[node name="MesaAntiguo" type="Sprite2D" parent="RoomSprite3" unique_id=1399392470]
+position = Vector2(-4, 65)
+scale = Vector2(1, 1.8214284)
+texture = ExtResource("13_tvqiu")
+
+[node name="PcState" parent="RoomSprite3" unique_id=796834188 instance=ExtResource("5_l3uah")]
+position = Vector2(-24, -42)
 
 [node name="Jeringa" parent="." unique_id=1373762188 instance=ExtResource("2_8ln5v")]
 position = Vector2(214, -23)
@@ -113,7 +127,7 @@ position = Vector2(214, -23)
 [node name="Caja agujas" type="Node2D" parent="." unique_id=2015411999]
 
 [node name="Npc" parent="." unique_id=305684517 instance=ExtResource("5_vyol7")]
-position = Vector2(147, 66)
+position = Vector2(152, 61)
 
 [node name="SetJeringa" type="Area2D" parent="." unique_id=390342974]
 position = Vector2(603, 153)
@@ -166,6 +180,7 @@ limit_right = 638
 limit_bottom = 180
 script = ExtResource("11_1elsv")
 
+[connection signal="on_inyection_insertar_en_jeringa" from="RoomSprite2/TableInyections" to="." method="_on_table_inyections_on_inyection_insertar_en_jeringa"]
 [connection signal="set_effect" from="Jeringa" to="." method="_on_jeringa_set_effect"]
 [connection signal="mouse_entered" from="SetJeringa" to="SetJeringa" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SetJeringa" to="SetJeringa" method="_on_mouse_exited"]

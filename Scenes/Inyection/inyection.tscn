@@ -1,26 +1,109 @@
 [gd_scene format=3 uid="uid://cgt4l164p6raf"]
 
 [ext_resource type="Script" uid="uid://qooce3i5wl41" path="res://Scenes/Inyection/inyection.gd" id="1_jsm8w"]
+[ext_resource type="Texture2D" uid="uid://vqqigxgj7jwj" path="res://assets/textures/pociones/pocion amarilla.png" id="2_11x2b"]
+[ext_resource type="Texture2D" uid="uid://c3haot3h3fiys" path="res://assets/textures/mapa/hoja.png" id="3_r5ft7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11x2b"]
-size = Vector2(28, 29)
+size = Vector2(41, 59)
+
+[sub_resource type="Animation" id="Animation_57o34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hoja:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hoja:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -6.999996)]
+}
+
+[sub_resource type="Animation" id="Animation_r5ft7"]
+resource_name = "show_details"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hoja:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hoja:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, -6.999996), Vector2(2, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57o34"]
+_data = {
+&"RESET": SubResource("Animation_57o34"),
+&"show_details": SubResource("Animation_r5ft7")
+}
 
 [node name="Inyection" type="Node2D" unique_id=1857755230]
 script = ExtResource("1_jsm8w")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=891268795]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 15.0
-metadata/_edit_use_anchors_ = true
+[node name="Pocion" type="Sprite2D" parent="." unique_id=1068483515]
+position = Vector2(0, -9)
+texture = ExtResource("2_11x2b")
 
-[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1984478530]
+[node name="Area2D" type="Area2D" parent="." unique_id=1984478530]
+position = Vector2(-14, -14)
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1017300043]
-position = Vector2(14, 14.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1017300043]
+position = Vector2(13.5, 5.5)
 shape = SubResource("RectangleShape2D_11x2b")
 
-[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="ColorRect/Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Hoja" type="Sprite2D" parent="." unique_id=300361669]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2, -6.999996)
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("3_r5ft7")
+
+[node name="NameInjection" type="Label" parent="Hoja" unique_id=2131268285]
+offset_left = -33.333336
+offset_top = -17.543861
+offset_right = 28.070171
+offset_bottom = -1.7543869
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Example"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1420566432]
+libraries/ = SubResource("AnimationLibrary_57o34")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

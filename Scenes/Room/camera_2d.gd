@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		print("moviendo a la derecha")
 		var tween = get_tree().create_tween()
 		movimiento = true
-		tween.tween_property(self, "global_position", target_right, 1)
+		tween.tween_property(self, "global_position", target_right, 0.5)
 		await tween.finished
 		movimiento = false
 		num_movimiento +=1
@@ -26,11 +26,12 @@ func _input(event: InputEvent) -> void:
 		print("moviendo a la izquierda")
 		var tween = get_tree().create_tween()
 		movimiento = true
-		tween.tween_property(self, "global_position", target_left, 1)
+		tween.tween_property(self, "global_position", target_left, 0.5)
 		await tween.finished
 		movimiento = false
 		num_movimiento -=1
 		print("movimiento: izq",  num_movimiento)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

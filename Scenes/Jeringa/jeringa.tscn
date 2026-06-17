@@ -12,23 +12,6 @@ script = ExtResource("1_iu4tj")
 [node name="JeringaArea" type="Area2D" parent="." unique_id=39375673]
 collision_layer = 4
 
-[node name="ColorRect" type="ColorRect" parent="JeringaArea" unique_id=1767243073]
-visible = false
-offset_left = 14.0
-offset_top = -33.0
-offset_right = 30.0
-offset_bottom = -1.0
-rotation = 0.59099334
-
-[node name="ColorRect2" type="ColorRect" parent="JeringaArea" unique_id=1837254122]
-visible = false
-offset_left = 2.0
-offset_top = -2.999998
-offset_right = 5.840454
-offset_bottom = 8.643984
-rotation = 0.59099334
-color = Color(0, 0, 0, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JeringaArea" unique_id=949776597]
 shape = SubResource("RectangleShape2D_xxgcc")
 

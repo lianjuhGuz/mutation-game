@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c76gmqd4q56ys"]
+
+[ext_resource type="Script" uid="uid://12ttc3oqglp6" path="res://Scenes/DetailsPapper/details.gd" id="1_hquie"]
+[ext_resource type="Texture2D" uid="uid://c3haot3h3fiys" path="res://assets/textures/mapa/hoja.png" id="1_mbjtn"]
+
+[sub_resource type="Animation" id="Animation_hquie"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hoja:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hoja:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(154.74998, 224)]
+}
+
+[sub_resource type="Animation" id="Animation_mbjtn"]
+resource_name = "show_label"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-8, 18), Vector2(-8, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hquie"]
+_data = {
+&"RESET": SubResource("Animation_hquie"),
+&"show_label": SubResource("Animation_mbjtn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbjtn"]
+size = Vector2(48, 41)
+
+[node name="Details" type="Node2D" unique_id=1970180122]
+script = ExtResource("1_hquie")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=108709676]
+position = Vector2(7.999954, 30)
+scale = Vector2(0.36, 0.36)
+skew = -0.35081118
+texture = ExtResource("1_mbjtn")
+
+[node name="Label" type="Label" parent="." unique_id=79951285]
+modulate = Color(1, 1, 1, 0)
+offset_left = -8.0
+offset_top = 18.0
+offset_right = 21.0
+offset_bottom = 31.000011
+theme_override_font_sizes/font_size = 8
+text = "Details"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020084722]
+libraries/ = SubResource("AnimationLibrary_hquie")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=832566360]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=268507578]
+position = Vector2(9, 27.5)
+shape = SubResource("RectangleShape2D_mbjtn")
+
+[node name="Hoja" type="Sprite2D" parent="." unique_id=1139497397]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(154.74998, 224)
+scale = Vector2(1.871951, 1.8015465)
+texture = ExtResource("1_mbjtn")
+
+[node name="Label2" type="Label" parent="Hoja" unique_id=905724939]
+offset_left = -32.986965
+offset_top = -44.75322
+offset_right = 36.459293
+offset_bottom = 62.24678
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 2
+text = "Alexidium: It increases the size of the body, it requires a temperature of 10°C to take effect
+Lianjuhm: It raises the body's internal temperature, it requires a temperature of 37°C to take effect
+Blawaxim: it Increases the person's strength, it requires a temperature of 37°C to take effect
+Zobyxa:
+Homoalexiu:"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgpt51bhaojtw" path="res://assets/Room Sprite.png" id="1_ogljc"]
 [ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
 [ext_resource type="PackedScene" uid="uid://dlmtg3i44fyo2" path="res://Scenes/TableInyections/table_inyections.tscn" id="3_2etwf"]
+[ext_resource type="PackedScene" uid="uid://c76gmqd4q56ys" path="res://Scenes/DetailsPapper/details.tscn" id="5_epreh"]
 [ext_resource type="PackedScene" uid="uid://b3h46grt7by5x" path="res://Scenes/Pc/pc_state.tscn" id="5_l3uah"]
 [ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
 [ext_resource type="Texture2D" uid="uid://dj353pf4nh7sc" path="res://assets/box.png" id="6_36na4"]
@@ -119,7 +120,10 @@ scale = Vector2(1, 1.8214284)
 texture = ExtResource("13_tvqiu")
 
 [node name="PcState" parent="RoomSprite3" unique_id=796834188 instance=ExtResource("5_l3uah")]
-position = Vector2(-24, -42)
+position = Vector2(-27, -43)
+
+[node name="Details" parent="RoomSprite3" unique_id=1970180122 instance=ExtResource("5_epreh")]
+position = Vector2(-140, -11)
 
 [node name="Jeringa" parent="." unique_id=1373762188 instance=ExtResource("2_8ln5v")]
 position = Vector2(214, -23)
@@ -181,7 +185,12 @@ limit_bottom = 180
 script = ExtResource("11_1elsv")
 
 [connection signal="on_inyection_insertar_en_jeringa" from="RoomSprite2/TableInyections" to="." method="_on_table_inyections_on_inyection_insertar_en_jeringa"]
+[connection signal="finish_first" from="RoomSprite3/PcState" to="." method="_on_pc_state_finish_first"]
+[connection signal="npc_dead" from="RoomSprite3/PcState" to="." method="_on_pc_state_npc_dead"]
+[connection signal="win_level" from="RoomSprite3/PcState" to="." method="_on_pc_state_win_level"]
 [connection signal="set_effect" from="Jeringa" to="." method="_on_jeringa_set_effect"]
+[connection signal="emit_effects" from="Npc" to="." method="_on_npc_emit_effects"]
+[connection signal="emitir_efecto_dominante" from="Npc" to="." method="_on_npc_emitir_efecto_dominante"]
 [connection signal="mouse_entered" from="SetJeringa" to="SetJeringa" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SetJeringa" to="SetJeringa" method="_on_mouse_exited"]
 [connection signal="area_entered" from="Trash" to="Trash" method="_on_area_entered"]

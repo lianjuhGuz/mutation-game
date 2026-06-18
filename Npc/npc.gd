@@ -6,8 +6,10 @@ class_name NPC
 
 var jeringa_dentro: bool = false
 var current_effects: Array = []
+var dominant_effect: String = ""
 
 signal emit_effects(efectos: Array)
+signal emitir_efecto_dominante(efecto_dominante: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -71,7 +73,10 @@ func añadir_efecto(efecto: String):
 	if current_effects.size() == 2:
 		print("MAXIMOS EFECTOS YA")
 		emit_effects.emit(current_effects)
-
+	
+	if current_effects.size() > 0:
+		emitir_efecto_dominante.emit(current_effects.back())
+	
 
 @warning_ignore("unused_parameter")
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -84,4 +89,27 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
  
 
 func kill_npc():
+	GameManager.health_points = 0
+	current_effects.clear()
+	dominant_effect = ""
 	queue_free()
+
+
+func start_challengue_temperature():
+	if dominant_effect == "Alexidium":
+		GameManager.better_temperature = 10
+		
+	elif dominant_effect == "Lianjuhm":
+		GameManager.better_temperature = 37
+		
+	elif dominant_effect == "Blawaxim":
+		GameManager.better_temperature = 40
+		
+	elif dominant_effect == "Zobyxa":
+		GameManager.better_temperature = 22
+		
+	elif dominant_effect == "Homoalexiu":
+		GameManager.better_temperature = 11
+	
+	else:
+		print("de donde sacaste eso we")

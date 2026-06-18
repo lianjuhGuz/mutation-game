@@ -30,17 +30,31 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	changue_temperature()
+	validar_estabilidad_temperatura()
 	
 	#Por si algun timer está activo, significa que el progreso sigue en pie
+	#(Segunda fase de lo que puse en el cuaderno)
 	if timer_lose.is_stopped() and timer_progress.is_stopped():
 		print("todo bien papu, inyecta")
 		in_progress = false
+		
 	else:
 		print("cuidado papu, falta tiempo")
-		in_progress = true
 		
-	changue_temperature()
-	validar_estabilidad_temperatura()
+		if not timer_lose.is_stopped():
+			print("timer_lose está activo")
+			
+		if not timer_progress.is_stopped():
+			print("timer_progress está activo")
+		in_progress = true
+	
+	#para comprobar que no se mezclan 
+	if not timer_progress.is_stopped():
+		timer_lose.stop()
+		
+	if not timer_lose.is_stopped():
+		timer_progress.stop()
 
 
 func _on_less_pressed() -> void:
@@ -88,6 +102,8 @@ func changue_temperature_body():
 		repeat_changue_temperature_body()
 
 
+#Cuando termina el timer de muerte, simplemente, pues muere XD
+#tercera fase del cuaderno
 func _on_timer_lose_timeout() -> void:
 	print("npc muriendo, inestabilidad de temperatura")
 	npc_dead.emit()
@@ -101,22 +117,35 @@ func _on_timer_progress_timeout() -> void:
 		
 	else:
 		progress_count += 1
-		timer_progress.wait_time = 30
+		timer_progress.stop()
 		finish_first.emit()
 		
 
+#Si la temperatura es estable...
+#cuarta fase del cuaderno
 func validar_estabilidad_temperatura() -> void:
 	if not in_progress:
 		return
-		
+	max_temp_range = GameManager.better_temperature + 1.2
+	min_temp_range = GameManager.better_temperature - 1.2
+
 	var temp_cuerpo = GameManager.current_temperature_body
 	
+	print("minima temperatura del cuerpo requerida:", min_temp_range)
+	print("maxima temperatura del cuerpo requerida:", max_temp_range)
+	print("Mejor temperatura según game Manager:", GameManager.better_temperature)
+	
+	#Si está dentro de la temperatura correcta, pues avanza el progreso
 	if temp_cuerpo >= min_temp_range and temp_cuerpo <= max_temp_range:
+		#empieza la 6ta fase, iniciar el timer para ganar
 		if timer_progress.is_stopped():
 			timer_progress.start()
 			print("Temperatura en rango")
 	
+	#si no, pues reinicia el timer de perder
+	#Quinta fase del cuaderno
 	else:
+		print("validar_estabilidad_temperatura() se ha detectado que timer lose continuará")
 		if not timer_progress.is_stopped():
 			timer_progress.stop()
 			timer_lose.start()

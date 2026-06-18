@@ -197,10 +197,10 @@ theme_override_font_sizes/font_size = 3
 text = "30 C"
 
 [node name="TimerProgress" type="Timer" parent="." unique_id=827198519]
-wait_time = 35.0
+wait_time = 20.0
 
 [node name="TimerLose" type="Timer" parent="." unique_id=1227593532]
-wait_time = 20.0
+wait_time = 30.0
 
 [node name="Time label" type="Label" parent="." unique_id=720925825]
 offset_left = 23.0

@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 
 
 func _on_jeringa_set_effect(efecto: String) -> void:
+	#si se puede inyectar, hacemos una comprobación. octava fase
+	#del cuaderno
+	if pc_state.in_progress == true:
+		return
 	npc.añadir_efecto(efecto)
 	GameManager.health_points -= 10
 	comprobate_timer_progress()
@@ -81,6 +85,7 @@ func comprobate_timer_progress():
 
 func _on_pc_state_finish_first() -> void:
 	npc.start_challengue_temperature()
+	pc_state.in_progress = false
 
 #ya me perdí, me tocó comentar
 #FUNCION PARA DAR EL EFECTO DOMINANTE, para que esta vaina devuelva el 

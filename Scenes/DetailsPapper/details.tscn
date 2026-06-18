@@ -119,6 +119,7 @@ offset_right = 21.0
 offset_bottom = 31.000011
 theme_override_font_sizes/font_size = 8
 text = "Details"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020084722]
 libraries/ = SubResource("AnimationLibrary_hquie")

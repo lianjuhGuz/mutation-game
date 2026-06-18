@@ -122,7 +122,7 @@ func _on_timer_progress_timeout() -> void:
 		
 
 #Si la temperatura es estable...
-#cuarta fase del cuaderno
+#cuarta fase del cuaderno (PORFIN PARECE SERVIR)
 func validar_estabilidad_temperatura() -> void:
 	if not in_progress:
 		return

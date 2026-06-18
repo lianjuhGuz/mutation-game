@@ -5,14 +5,15 @@ var target_left: Vector2 = Vector2(self.global_position.x - 314, self.global_pos
 
 var movimiento: bool = false
 var num_movimiento: int = 1 #para el mero centro
+var can_move: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	DialogueManager.connect("dialogue_started", Callable(self, "_on_dialogue_started"))
+	DialogueManager.connect("dialogue_ended", Callable(self, "_on_dialogue_ended"))
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right") and not movimiento and num_movimiento < 2:
+	if event.is_action_pressed("right") and not movimiento and num_movimiento < 2 and can_move:
 		print("moviendo a la derecha")
 		var tween = get_tree().create_tween()
 		movimiento = true
@@ -22,7 +23,7 @@ func _input(event: InputEvent) -> void:
 		num_movimiento +=1
 		print("movimiento: der",  num_movimiento)
 
-	elif event.is_action_pressed("left") and not movimiento and num_movimiento > 0:
+	elif event.is_action_pressed("left") and not movimiento and num_movimiento > 0 and can_move:
 		print("moviendo a la izquierda")
 		var tween = get_tree().create_tween()
 		movimiento = true
@@ -45,3 +46,12 @@ func _process(delta: float) -> void:
 	target_right = Vector2(self.global_position.x + 320, self.global_position.y )
 	target_left = Vector2(self.global_position.x - 320, self.global_position.y )
 	
+
+func _on_dialogue_ended(dialogue):
+	can_move = true
+	print("Dialogo?", dialogue)
+
+
+func _on_dialogue_started(dialogue):
+	can_move = false
+	print("Dialogo?", dialogue)

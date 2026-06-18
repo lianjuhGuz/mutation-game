@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dnkusodyt76qk"]
+
+[ext_resource type="Script" uid="uid://dqd6bmxssohxw" path="res://Scenes/Cinematics/cinematic_npc.gd" id="1_xvioc"]
+[ext_resource type="Texture2D" uid="uid://dnctjbqfb7m20" path="res://assets/textures/mapa/fondo.png" id="1_yih30"]
+[ext_resource type="Texture2D" uid="uid://bti8yulsetgte" path="res://assets/textures/dummy/loco.png" id="2_g2xht"]
+[ext_resource type="PackedScene" uid="uid://bbvvidr2qtkpj" path="res://Scenes/TransitionAnimation/transition_animation.tscn" id="4_lcdg4"]
+
+[sub_resource type="Animation" id="Animation_lcdg4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AleTheDoctor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AleTheDoctor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AleTheDoctor/AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.0098039)]
+}
+
+[sub_resource type="Animation" id="Animation_xvioc"]
+resource_name = "aparition"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AleTheDoctor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AleTheDoctor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10130787, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.1641346, -6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AleTheDoctor/AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.0098039)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcdg4"]
+_data = {
+&"RESET": SubResource("Animation_lcdg4"),
+&"aparition": SubResource("Animation_xvioc")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvioc"]
+atlas = ExtResource("2_g2xht")
+region = Rect2(0, 0, 103, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcdg4"]
+atlas = ExtResource("2_g2xht")
+region = Rect2(103, 0, 103, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t58ef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvioc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdg4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cinematic_npc" type="Node2D" unique_id=1279939614]
+script = ExtResource("1_xvioc")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1428357858]
+position = Vector2(160, 90)
+texture = ExtResource("1_yih30")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=343420726]
+libraries/ = SubResource("AnimationLibrary_lcdg4")
+
+[node name="AleTheDoctor" type="Node2D" parent="." unique_id=1954985604]
+position = Vector2(161, 70)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AleTheDoctor" unique_id=603630639]
+position = Vector2(-7, 20)
+scale = Vector2(1, 1.0098039)
+sprite_frames = SubResource("SpriteFrames_t58ef")
+autoplay = "default"
+frame_progress = 0.2187052
+
+[node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("4_lcdg4")]

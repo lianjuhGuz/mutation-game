@@ -1,7 +1,6 @@
 extends Node2D
 class_name NPC
 
-
 @onready var sprite: AnimatedSprite2D = $NPCArea/AnimatedSprite2D
 
 var jeringa_dentro: bool = false
@@ -113,3 +112,7 @@ func start_challengue_temperature():
 	
 	else:
 		print("de donde sacaste eso we")
+
+
+func _on_button_pressed() -> void:
+	DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FirstLevel")

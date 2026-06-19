@@ -183,6 +183,5 @@ text = "Art by: Ale555"
 autowrap_mode = 3
 
 [node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("4_ut8rr")]
-visible = false
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

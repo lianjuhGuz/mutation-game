@@ -182,7 +182,7 @@ polygon = PackedVector2Array(0, 0, 2.5, 3, 5, 0)
 libraries/ = SubResource("AnimationLibrary_6b6c8")
 autoplay = &"progress"
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=1588920313]
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=1588920313 node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -199,6 +199,7 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 script = ExtResource("3_1j1j0")
+response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=807778738]
 layout_mode = 2

@@ -203,7 +203,6 @@ libraries/ = SubResource("AnimationLibrary_3ete0")
 autoplay = &"Fall potions"
 
 [node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("6_3ete0")]
-visible = false
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/CredditsButton" to="." method="_on_creddits_button_pressed"]

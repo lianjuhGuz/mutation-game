@@ -55,8 +55,9 @@ func _process(delta: float) -> void:
 		
 	if not timer_lose.is_stopped():
 		timer_progress.stop()
-
-
+	
+	
+	
 func _on_less_pressed() -> void:
 	if GameManager.current_temperature_air <= 0:
 		GameManager.current_temperature_air = 0

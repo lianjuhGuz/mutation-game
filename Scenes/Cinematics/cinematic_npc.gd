@@ -26,7 +26,36 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(dialogue1, "level2")
 		await DialogueManager.dialogue_ended
 		get_tree().change_scene_to_file("res://Scenes/Room/room.tscn")
+		
+	if GameManager.current_level == 3:
+		GameManager.dialogue_count = 0
+		print("tercer dialogo, para el tercer nivel")
+		await get_tree().create_timer(1).timeout
+		animation.play("aparition")
+		await animation.animation_finished
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.show_dialogue_balloon(dialogue1, "level3")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://Scenes/Room/room.tscn")
+		
+	if GameManager.current_level == 4:
+		GameManager.dialogue_count = 0
+		print("Cuarto dialogo, para el cuarto nivel")
+		await get_tree().create_timer(1).timeout
+		animation.play("aparition")
+		await animation.animation_finished
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.show_dialogue_balloon(dialogue1, "level4")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://Scenes/Room/room.tscn")
 
+	if GameManager.current_level >= 5:
+		GameManager.dialogue_count = 0
+		print("Cuarto dialogo, para el cuarto nivel")
+		await get_tree().create_timer(1).timeout
+		DialogueManager.show_dialogue_balloon(dialogue1, "ThankYouForPlay")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("Credits")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

@@ -14,9 +14,6 @@ Ale The Doctor: I need you to help me treat some patients with chemicals with mu
 	Ale The Doctor: VERY NICE, listen now
 => END	
 
-~ FirstLevel
-Literally a Npc: (robot sounds) Doctor, I keep forgetting things, and my body feels weaker every day. I can barely focus on simple tasks
-=> END
 
 ~ Instructions
 Ale The Doctor: You need to have the right conditions when injecting. I would recommend checking the instructions next to the PC.
@@ -40,15 +37,84 @@ Ale The Doctor: you know who is the next person for the treatment
 What?
 => END
 
+
+~ level3
+Ale The Doctor: How did your second day go?
+- Nice
+	Ale The Doctor: I think well be good partners
+- Bad, my neighbor is a strange mutant now
+	Ale The Doctor: Yes yes, but he is CURED.
+	...
+Ale The Doctor: you know who is the next person for the treatment too
+What?
+
+=> END
+
+~ level4
+Ale The Doctor: How did your third day go?
+- Nice he deserves it
+	Ale The Doctor: Good, the other person is even better 
+- Bad, my teacher its on fire
+	Ale The Doctor: Your teacher is so hot
+	...
+Ale The Doctor: you know who is the next person for the treatment too
+Oh... Again?
+=> END
+
+~ FirstLevel
+Literally a Npc: (robot sounds) Doctor, I keep forgetting things, and my body feels weaker every day. I can barely focus on simple tasks
+=> END
+
 ~ SecondLevel1
 IS MY FUCKING NEIGHBOR
 Tiago: Oh... Neighbor, did you get a new job? Can you... Can you heal me?
 Ok...
-Tiago: I haven't eaten any vegetables hahaha, I have trouble moving my arms, and my muscles feel extremely weak.... I can barely lift anything
-Tiago: My wife is disappointed in me...
+=> END
 
 ~ SecondLevel2
 Tiago: I haven't eaten any vegetables hahaha, I have trouble moving my arms, and my muscles feel extremely weak.... I can barely lift anything
 Tiago: My wife is disappointed in me...
+=> END
 
+~ ThirdLevel1
+... Is my teacher
+Julio: Oh student, what are you doing here?
+- I am working part time
+	Julio: Oh, I didnt know you wanted to be a doctor!!
+- Fuck you teacher
+	Julio: Oh...
+Julio: Can you cure me anyway?
+Ok...
+=> END
+
+~ ThirdLevel2
+Julio: My body temperature is low, and I feel more small every day
+Julio: The students make fun of me every day...
+I know
+=> END
+
+~ FourthLevel1
+Oh no, is my brother... IS MY BROTHER...
+My brother: Bro, what am I doing here?
+What?
+My brother: A guy with a strange smile grabbed me, injected me with something, and brought me here against my will
+- What the hell are you doing, Ale?
+	Ale The Doctor: Shut up, or you are next
+	...
+- I dont care, just let me inject you too
+	Ale The Doctor: Yes, more experiments, less talking
+	Ale The Doctor: ... I mean... Cure it
+=> END
+
+~ FourthLevel2
+Ale The Doctor: Heres a hint. Ge has difficulty remembering even the simplest things, and strange skin lesions keep spreading all over his body
+Ale The Doctor: Just inject him...
+=> END
+
+~ ThankYouForPlay
+You: My Brother... is a monster now...
+Ale The Doctor: Yes yes, but this is all
+You: Serius?
+Ale The Doctor: Yes, the game is finished
+Ale The Doctor: Thank you for play
 => END

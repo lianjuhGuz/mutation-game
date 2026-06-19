@@ -15,12 +15,30 @@ var can_next: bool = false
 func _ready() -> void:
 	npc.global_position = Vector2(159, 70)
 	Input.set_custom_mouse_cursor(cursor_image)
-	if GameManager.dialogue_count == 0:
+	if GameManager.current_level == 1 and GameManager.dialogue_count == 0:
 		camera_2d.can_move = false
 		GameManager.dialogue_count += 1
 		await get_tree().create_timer(0.67).timeout
 		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "Instructions")
+	
+	elif GameManager.current_level == 2 and GameManager.dialogue_count == 0:
+		camera_2d.can_move = false
+		GameManager.dialogue_count += 1
+		await get_tree().create_timer(0.67).timeout
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "SecondLevel1")
+	
+	elif GameManager.current_level == 3 and GameManager.dialogue_count == 0:
+		camera_2d.can_move = false
+		GameManager.dialogue_count += 1
+		await get_tree().create_timer(0.67).timeout
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "ThirdLevel1")
 		
+	elif GameManager.current_level == 4 and GameManager.dialogue_count == 0:
+		camera_2d.can_move = false
+		GameManager.dialogue_count += 1
+		await get_tree().create_timer(0.67).timeout
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FourthLevel1")
+	
 	print(Input.MOUSE_MODE_HIDDEN)
 	get_level()
 
@@ -84,8 +102,26 @@ func _on_npc_emit_effects(efectos: Array) -> void:
 		print("efectos:", efectos)
 		print("los efectos requeridos concuerdan")
 		print("ganaste el juego, bien hecho")
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(camera_2d, "global_position", Vector2(157, 90), 1)
+		camera_2d.can_move = false
+		
+		if GameManager.current_level == 1:
+			npc.sprite.play("default_transform_1")
+			
+		if GameManager.current_level == 2:
+			npc.sprite.play("brocoli_transform")
+			
+		if GameManager.current_level == 3:
+			npc.sprite.play("teacher_transform")
+			
+		if GameManager.current_level == 4:
+			npc.sprite.play("bro_transform")
+		
 		GameManager.dialogue_count = 0
 		GameManager.current_level += 1
+		await get_tree(). create_timer(4).timeout
 		get_tree().change_scene_to_file("res://Scenes/Cinematics/cinematic_npc.tscn")
 		
 	else:

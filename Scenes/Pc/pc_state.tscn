@@ -105,6 +105,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "30 C"
 
+[node name="Danger Indicator" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=1188992514]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=663959355]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "Danger:"
+
+[node name="IdealTemperature" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=643639837]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "No"
+
 [node name="Health" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=102116359]
 layout_mode = 2
 theme_override_constants/separation = 3
@@ -116,27 +130,6 @@ text = "Health:"
 
 [node name="ProgressHealth" type="ProgressBar" parent="ColorRect4/VBoxContainer/Health" unique_id=866078489]
 custom_minimum_size = Vector2(36.74, 0.09)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 3
-theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
-theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
-max_value = 1.0
-value = 0.67
-
-[node name="Cordure" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=766620734]
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Cordure" unique_id=1624422252]
-layout_mode = 2
-theme_override_font_sizes/font_size = 3
-text = "Cordure:"
-
-[node name="ProgressCordure" type="ProgressBar" parent="ColorRect4/VBoxContainer/Cordure" unique_id=197143211]
-custom_minimum_size = Vector2(36.79, 0.09)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4

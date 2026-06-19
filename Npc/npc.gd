@@ -136,9 +136,11 @@ func _on_button_pressed() -> void:
 	if GameManager.current_level == 1:
 		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FirstLevel")
 		
-	if GameManager.current_level == 2 and GameManager.dialogue_count == 0:
-		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "SecondLevel1")
-		GameManager.dialogue_count += 1
-		
-	if GameManager.current_level == 2 and GameManager.dialogue_count >= 1:
+	if GameManager.current_level == 2:
 		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "SecondLevel2")
+		
+	if GameManager.current_level == 3:
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "ThirdLevel2")
+		
+	if GameManager.current_level == 4:
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FourthLevel2")

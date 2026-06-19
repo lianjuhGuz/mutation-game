@@ -15,6 +15,18 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(dialogue1, "level1")
 		await DialogueManager.dialogue_ended
 		get_tree().change_scene_to_file("res://Scenes/Room/room.tscn")
+	
+	if GameManager.current_level == 2:
+		GameManager.dialogue_count = 0
+		print("segundo dialogo, para el segundo nivel")
+		await get_tree().create_timer(1).timeout
+		animation.play("aparition")
+		await animation.animation_finished
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.show_dialogue_balloon(dialogue1, "level2")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://Scenes/Room/room.tscn")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

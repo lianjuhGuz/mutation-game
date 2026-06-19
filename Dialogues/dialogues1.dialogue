@@ -12,11 +12,10 @@ Ale The Doctor: I need you to help me treat some patients with chemicals with mu
 	Ale The Doctor: The police is real and i don't want to go jail alone.
 - OK
 	Ale The Doctor: VERY NICE, listen now
-	
 => END	
 
 ~ FirstLevel
-Is only a dummy: Doctor, I have grown much taller in just a few days. On top of that, my mind feels incredibly active. I can remember every detail and solve problems faster than ever before.
+Literally a Npc: (robot sounds) Doctor, I keep forgetting things, and my body feels weaker every day. I can barely focus on simple tasks
 => END
 
 ~ Instructions
@@ -28,5 +27,28 @@ Ale The Doctor: For move, use the a-d or the keys arrows...
 Ale The Doctor: For interact in the game use the mouse
 Ale The Doctor: The patient must be in optimal condition for the next injection. Once their temperature stabilizes, you can administer another injection. The body can only tolerate a maximum of two injections.
 Ale The Doctor: And thats it, playy!.
+=> END
+
+~ level2
+Ale The Doctor: How did your first day go?
+- Nice
+	Ale The Doctor: Yes yes, you are... PERFECT
+- Bad, the person is a mutant now
+	Ale The Doctor: Waaa, waaa... I am crying now (is sarcasm)
+	...
+Ale The Doctor: you know who is the next person for the treatment
+What?
+=> END
+
+~ SecondLevel1
+IS MY FUCKING NEIGHBOR
+Tiago: Oh... Neighbor, did you get a new job? Can you... Can you heal me?
+Ok...
+Tiago: I haven't eaten any vegetables hahaha, I have trouble moving my arms, and my muscles feel extremely weak.... I can barely lift anything
+Tiago: My wife is disappointed in me...
+
+~ SecondLevel2
+Tiago: I haven't eaten any vegetables hahaha, I have trouble moving my arms, and my muscles feel extremely weak.... I can barely lift anything
+Tiago: My wife is disappointed in me...
 
 => END

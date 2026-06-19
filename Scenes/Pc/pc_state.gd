@@ -116,6 +116,7 @@ func _on_timer_progress_timeout() -> void:
 		progress_count = 0
 		
 	else:
+		print("cantidad de progreso: ", progress_count)
 		progress_count += 1
 		timer_progress.stop()
 		finish_first.emit()

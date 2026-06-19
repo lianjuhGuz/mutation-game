@@ -195,6 +195,67 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf1t6"]
 size = Vector2(74, 120.75)
 
+[sub_resource type="Animation" id="Animation_1a4uc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCArea:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ln1k7"]
+resource_name = "dead_animation"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(37, -2), Vector2(37, 89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCArea:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8yuh"]
+_data = {
+&"RESET": SubResource("Animation_1a4uc"),
+&"dead_animation": SubResource("Animation_ln1k7")
+}
+
 [node name="Npc" type="Node2D" unique_id=305684517]
 self_modulate = Color(0.8615085, 0.24886104, 0.44171184, 1)
 script = ExtResource("1_6bn5k")
@@ -207,7 +268,7 @@ position = Vector2(-25, 13)
 sprite_frames = SubResource("SpriteFrames_obaio")
 animation = &"bro_transform"
 autoplay = "default"
-frame_progress = 0.5521816
+frame_progress = 0.5806617
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCArea" unique_id=963178932]
 position = Vector2(-33, 22.375)
@@ -220,6 +281,9 @@ offset_right = 177.0
 offset_bottom = -31.0
 scale = Vector2(0.68, 0.68)
 text = "What do I have?"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=789327890]
+libraries/ = SubResource("AnimationLibrary_s8yuh")
 
 [connection signal="body_entered" from="NPCArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="NPCArea" to="." method="_on_area_2d_body_exited"]

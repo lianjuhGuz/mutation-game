@@ -2,6 +2,10 @@ extends Node2D
 class_name NPC
 
 @onready var sprite: AnimatedSprite2D = $NPCArea/AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $NPCArea/CollisionShape2D
+@onready var npc_area: Area2D = $NPCArea
+@onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var button: Button = $Button
 
 var jeringa_dentro: bool = false
 var current_effects: Array = []
@@ -34,6 +38,7 @@ func _process(delta: float) -> void:
 		print("Jeringa dentro y click presionado")
  	
 	if current_effects.size() >= 3:
+		print("OH, sobredosis de efectos")
 		kill_npc()
 
 
@@ -103,8 +108,9 @@ func kill_npc():
 	GameManager.health_points = 0
 	current_effects.clear()
 	dominant_effect = ""
-	queue_free()
-
+	animation.play("dead_animation")
+	sprite.stop()
+	button.hide()
 
 func start_challengue_temperature():
 	if dominant_effect == "Alexidium":
@@ -127,4 +133,12 @@ func start_challengue_temperature():
 
 
 func _on_button_pressed() -> void:
-	DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FirstLevel")
+	if GameManager.current_level == 1:
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "FirstLevel")
+		
+	if GameManager.current_level == 2 and GameManager.dialogue_count == 0:
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "SecondLevel1")
+		GameManager.dialogue_count += 1
+		
+	if GameManager.current_level == 2 and GameManager.dialogue_count >= 1:
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "SecondLevel2")

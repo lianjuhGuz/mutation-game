@@ -4,16 +4,23 @@ class_name Room
 @onready var jeringa: Node2D = $Jeringa
 @onready var npc: NPC = $Npc
 @onready var pc_state: Pc = $RoomSprite3/PcState
+@onready var camera_2d: Camera2D = $Camera2D
 
 var cursor_image = preload("uid://dr3putlqllhw8")
 var level: int = GameManager.current_level
 var combinacion_req: Array = []
 var dominant_effect: String = ""
-
+var can_next: bool = false
 
 func _ready() -> void:
+	npc.global_position = Vector2(159, 70)
 	Input.set_custom_mouse_cursor(cursor_image)
-	DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "Instructions")
+	if GameManager.dialogue_count == 0:
+		camera_2d.can_move = false
+		GameManager.dialogue_count += 1
+		await get_tree().create_timer(0.67).timeout
+		DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "Instructions")
+		
 	print(Input.MOUSE_MODE_HIDDEN)
 	get_level()
 
@@ -27,7 +34,12 @@ func _on_jeringa_set_effect(efecto: String) -> void:
 	#si se puede inyectar, hacemos una comprobación. octava fase
 	#del cuaderno
 	if pc_state.in_progress == true:
+		print("lo mataste pq según inyectaste en true _on_jeringa_set_effect")
+		npc.kill_npc()
+		
+	if GameManager.health_points <= 0:
 		return
+		
 	npc.añadir_efecto(efecto)
 	GameManager.health_points -= 10
 	comprobate_timer_progress()
@@ -57,23 +69,28 @@ func get_level():
 	
 
 func _on_pc_state_npc_dead() -> void:
+	print("npc murió en _on_pc_state_npc_dead")
 	npc.kill_npc()
 
 func _on_pc_state_win_level() -> void:
 	print("good, next progress")
-
+	can_next = true
 
 func _on_npc_emit_effects(efectos: Array) -> void:
-	
+	await pc_state.timer_progress.timeout
 	print("efecto dominante:", dominant_effect)
 	
 	if efectos == combinacion_req:
 		print("efectos:", efectos)
 		print("los efectos requeridos concuerdan")
 		print("ganaste el juego, bien hecho")
+		GameManager.dialogue_count = 0
+		GameManager.current_level += 1
+		get_tree().change_scene_to_file("res://Scenes/Cinematics/cinematic_npc.tscn")
+		
 	else:
 		print("tremendo pendejo, efectos incorrectos")
-	
+		npc.kill_npc()
 
 func comprobate_timer_progress():
 	if pc_state.timer_progress.is_stopped():
@@ -95,6 +112,7 @@ func _on_npc_emitir_efecto_dominante(efecto_dominante: String) -> void:
 	dominant_effect = efecto_dominante
 	print("efecto dominante: ", efecto_dominante)
 	if pc_state.in_progress:
+		print("lo mataste pq según pc_state, estaba en progreso, variable")
 		npc.kill_npc()
 	
 	

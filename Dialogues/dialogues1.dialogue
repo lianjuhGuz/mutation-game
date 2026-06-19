@@ -13,8 +13,11 @@ Ale The Doctor: I need you to help me treat some patients with chemicals with mu
 - OK
 	Ale The Doctor: VERY NICE, listen now
 	
+=> END	
+
 ~ FirstLevel
 Is only a dummy: Doctor, I have grown much taller in just a few days. On top of that, my mind feels incredibly active. I can remember every detail and solve problems faster than ever before.
+=> END
 
 ~ Instructions
 Ale The Doctor: You need to have the right conditions when injecting. I would recommend checking the instructions next to the PC.
@@ -23,5 +26,7 @@ Ale The Doctor: Use the pc to set the temperature of the place
 	Ale The Doctor: For nothing, the developer ran out of brain programming all this, you are asking too much of him
 Ale The Doctor: For move, use the a-d or the keys arrows...
 Ale The Doctor: For interact in the game use the mouse
+Ale The Doctor: The patient must be in optimal condition for the next injection. Once their temperature stabilizes, you can administer another injection. The body can only tolerate a maximum of two injections.
 Ale The Doctor: And thats it, playy!.
+
 => END

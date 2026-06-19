@@ -13,6 +13,7 @@ var dominant_effect: String = ""
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_image)
+	DialogueManager.show_dialogue_balloon(preload("uid://b8rg51nk2vt7o"), "Instructions")
 	print(Input.MOUSE_MODE_HIDDEN)
 	get_level()
 

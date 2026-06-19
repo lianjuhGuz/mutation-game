@@ -12,8 +12,20 @@ signal emitir_efecto_dominante(efecto_dominante: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if GameManager.current_level == 1:
+		sprite.play("default")
+		
+	elif GameManager.current_level == 2:
+		sprite.play("brocoli_default")
+		
+	elif GameManager.current_level == 3:
+		sprite.play("teacher_default")
+		
+	elif GameManager.current_level == 4:
+		sprite.play("bro_default")
+	
+	else:
+		sprite.play("default_transform_error")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

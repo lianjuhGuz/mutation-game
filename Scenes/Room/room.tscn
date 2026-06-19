@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c3emkjahljwwe" path="res://assets/TrashSprite.png" id="8_36na4"]
 [ext_resource type="Script" uid="uid://df2dvhlfdgidb" path="res://Scenes/Room/camera_2d.gd" id="11_1elsv"]
 [ext_resource type="Texture2D" uid="uid://bew0adol0q531" path="res://assets/textures/mapa/mesa antiguo.png" id="13_tvqiu"]
+[ext_resource type="PackedScene" uid="uid://bbvvidr2qtkpj" path="res://Scenes/TransitionAnimation/transition_animation.tscn" id="16_88ntm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n3fp"]
 size = Vector2(56, 56)
@@ -183,6 +184,8 @@ limit_top = 0
 limit_right = 638
 limit_bottom = 180
 script = ExtResource("11_1elsv")
+
+[node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("16_88ntm")]
 
 [connection signal="on_inyection_insertar_en_jeringa" from="RoomSprite2/TableInyections" to="." method="_on_table_inyections_on_inyection_insertar_en_jeringa"]
 [connection signal="finish_first" from="RoomSprite3/PcState" to="." method="_on_pc_state_finish_first"]

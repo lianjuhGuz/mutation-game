@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b812ymekyrr47" path="res://assets/textures/dummy/transformacion 6.png" id="8_8mcy2"]
 [ext_resource type="Texture2D" uid="uid://cytjb2710ikq7" path="res://assets/textures/dummy/teacher1.png" id="9_lckcj"]
 [ext_resource type="Texture2D" uid="uid://wb1bfh7e1wha" path="res://assets/textures/dummy/teacher2.png" id="10_ogd64"]
+[ext_resource type="FontFile" uid="uid://cyyv6lb7df5ml" path="res://fonts/press_start_2p/PressStart2P.ttf" id="11_ln1k7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c03ru"]
 atlas = ExtResource("2_1a4uc")
@@ -274,11 +275,13 @@ position = Vector2(-33, 22.375)
 shape = SubResource("RectangleShape2D_hf1t6")
 
 [node name="Button" type="Button" parent="." unique_id=2096090116]
-offset_left = 46.0
+offset_left = 33.0
 offset_top = -62.0
-offset_right = 177.0
+offset_right = 221.0
 offset_bottom = -31.0
 scale = Vector2(0.68, 0.68)
+theme_override_fonts/font = ExtResource("11_ln1k7")
+theme_override_font_sizes/font_size = 12
 text = "What do I have?"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=789327890]

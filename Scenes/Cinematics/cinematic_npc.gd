@@ -6,6 +6,7 @@ var dialogue1 = preload("uid://b8rg51nk2vt7o")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SoundManager.play_music(preload("uid://cfd7xiid16d7r"))
 	GameManager.health_points = 100
 	if GameManager.current_level == 1:
 		print("primer dialogo, para el primer nivel")

@@ -122,7 +122,7 @@ scale = Vector2(1, 1.8214284)
 texture = ExtResource("13_tvqiu")
 
 [node name="PcState" parent="RoomSprite3" unique_id=796834188 instance=ExtResource("5_l3uah")]
-position = Vector2(-27, -43)
+position = Vector2(-27, -38)
 
 [node name="Details" parent="RoomSprite3" unique_id=1970180122 instance=ExtResource("5_epreh")]
 position = Vector2(-140, -11)

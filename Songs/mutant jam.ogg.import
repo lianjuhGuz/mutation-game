@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfd7xiid16d7r"
+path="res://.godot/imported/mutant jam.ogg-23436cacb4a8eb4e1550ec7107953d6b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Songs/mutant jam.ogg"
+dest_files=["res://.godot/imported/mutant jam.ogg-23436cacb4a8eb4e1550ec7107953d6b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

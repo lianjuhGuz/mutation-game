@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k0duo4s6x23e" path="res://Scenes/EmergencyButton/emergency_button.gd" id="1_oewux"]
 [ext_resource type="Texture2D" uid="uid://ca2yvoore7m2k" path="res://assets/textures/mapa/boton de emergencia.png" id="1_tlexw"]
+[ext_resource type="FontFile" uid="uid://cyyv6lb7df5ml" path="res://fonts/press_start_2p/PressStart2P.ttf" id="3_hcqfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlexw"]
 size = Vector2(33.5, 31.75)
@@ -91,9 +92,10 @@ texture = ExtResource("1_tlexw")
 modulate = Color(1, 1, 1, 0)
 offset_left = 122.0
 offset_top = 109.0
-offset_right = 171.0
+offset_right = 210.0
 offset_bottom = 132.0
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("3_hcqfu")
+theme_override_font_sizes/font_size = 7
 text = "Reset Level"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2028549794]

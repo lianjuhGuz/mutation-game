@@ -13,6 +13,7 @@ var dominant_effect: String = ""
 var can_next: bool = false
 
 func _ready() -> void:
+	SoundManager.play_music(preload("uid://cfd7xiid16d7r"))
 	npc.global_position = Vector2(159, 70)
 	Input.set_custom_mouse_cursor(cursor_image)
 	if GameManager.current_level == 1 and GameManager.dialogue_count == 0:

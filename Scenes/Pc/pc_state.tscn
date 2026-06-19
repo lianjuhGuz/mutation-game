@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://4rncjep00jyr" path="res://Scenes/Pc/pc_state.gd" id="1_to2jp"]
 [ext_resource type="Texture2D" uid="uid://21e07ievg8vk" path="res://assets/textures/mapa/computador.png" id="2_11dqd"]
 [ext_resource type="Shader" uid="uid://ck0kkbnyyqphc" path="res://Scenes/Pc/pc_state.gdshader" id="3_emk06"]
+[ext_resource type="FontFile" uid="uid://cyyv6lb7df5ml" path="res://fonts/press_start_2p/PressStart2P.ttf" id="4_bj3f2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bj3f2"]
 shader = ExtResource("3_emk06")
@@ -53,7 +54,7 @@ position = Vector2(116, 80)
 script = ExtResource("1_to2jp")
 
 [node name="Computador" type="Sprite2D" parent="." unique_id=1250845778]
-position = Vector2(33.000004, 23.500004)
+position = Vector2(33.000004, 20.000004)
 scale = Vector2(2.440678, 2.2407408)
 texture = ExtResource("2_11dqd")
 
@@ -62,9 +63,9 @@ texture = ExtResource("2_11dqd")
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=789994505]
 material = SubResource("ShaderMaterial_bj3f2")
 offset_left = -35.0
-offset_top = -30.0
+offset_top = -31.0
 offset_right = 35.0
-offset_bottom = 9.0
+offset_bottom = 8.0
 scale = Vector2(1.28, 1.28)
 color = Color(0, 0, 0.81960785, 1)
 metadata/_edit_use_anchors_ = true
@@ -72,7 +73,7 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4" unique_id=692980382]
 layout_mode = 0
 offset_left = 2.0
-offset_top = -0.78125
+offset_top = 1.5625
 offset_right = 71.09375
 offset_bottom = 39.0
 theme_override_constants/separation = 2
@@ -83,12 +84,14 @@ theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="ColorRect4/VBoxContainer/BodyCurrent" unique_id=1842415848]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Body Temperature:"
 
 [node name="CurrentTemperature" type="Label" parent="ColorRect4/VBoxContainer/BodyCurrent" unique_id=605458473]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "30 C"
 
 [node name="Body ideal" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=1379192098]
@@ -97,12 +100,14 @@ theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Body ideal" unique_id=1170184049]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Ideal Temperature:"
 
 [node name="IdealTemperature" type="Label" parent="ColorRect4/VBoxContainer/Body ideal" unique_id=680726981]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "30 C"
 
 [node name="Danger Indicator" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=1188992514]
@@ -111,12 +116,14 @@ theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=663959355]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Danger:"
 
 [node name="Danger" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=643639837]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "No"
 
 [node name="Health" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=102116359]
@@ -125,7 +132,8 @@ theme_override_constants/separation = 3
 
 [node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Health" unique_id=1408217947]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Health:"
 
 [node name="ProgressHealth" type="ProgressBar" parent="ColorRect4/VBoxContainer/Health" unique_id=866078489]
@@ -134,7 +142,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_wgyfw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_to2jp")
 max_value = 1.0
@@ -142,11 +151,12 @@ value = 0.67
 
 [node name="Air" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=317100226]
 layout_mode = 2
-theme_override_constants/separation = 9
+theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="ColorRect4/VBoxContainer/Air" unique_id=1471640404]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Air:"
 
 [node name="FirstFirst" type="HBoxContainer" parent="ColorRect4/VBoxContainer/Air" unique_id=1726812025]
@@ -181,12 +191,14 @@ theme_override_constants/separation = 0
 
 [node name="Label2" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=279112927]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Temperature: "
 
 [node name="TemperatureAir" type="Label" parent="ColorRect4/VBoxContainer/Air/FirstFirst/Second" unique_id=1131150319]
 layout_mode = 2
-theme_override_font_sizes/font_size = 3
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "30 C"
 
 [node name="TimerProgress" type="Timer" parent="." unique_id=827198519]
@@ -196,11 +208,12 @@ wait_time = 20.0
 wait_time = 30.0
 
 [node name="Time label" type="Label" parent="." unique_id=720925825]
-offset_left = 23.0
-offset_top = -31.0
-offset_right = 55.0
-offset_bottom = -10.0
-theme_override_font_sizes/font_size = 3
+offset_left = -32.0
+offset_top = 9.0
+offset_right = -17.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("4_bj3f2")
+theme_override_font_sizes/font_size = 2
 text = "Time left:"
 
 [connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/Less" to="." method="_on_less_pressed"]

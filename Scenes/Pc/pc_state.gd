@@ -4,7 +4,6 @@ class_name Pc
 @onready var current_temperature: Label = $ColorRect4/VBoxContainer/BodyCurrent/CurrentTemperature
 @onready var ideal_temperature: Label = $"ColorRect4/VBoxContainer/Body ideal/IdealTemperature"
 @onready var progress_health: ProgressBar = $ColorRect4/VBoxContainer/Health/ProgressHealth
-@onready var progress_cordure: ProgressBar = $ColorRect4/VBoxContainer/Cordure/ProgressCordure
 @onready var temperature_air: Label = $ColorRect4/VBoxContainer/Air/FirstFirst/Second/TemperatureAir
 @onready var timer_progress: Timer = $TimerProgress
 @onready var timer_lose: Timer = $TimerLose

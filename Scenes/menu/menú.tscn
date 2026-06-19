@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://bxia68trpifdm"]
+
+[ext_resource type="Script" uid="uid://bk4j8x3v0fs7h" path="res://Scenes/menu/menú.gd" id="1_iraji"]
+[ext_resource type="Texture2D" uid="uid://vqqigxgj7jwj" path="res://assets/textures/pociones/pocion amarilla.png" id="1_tnoeq"]
+[ext_resource type="Texture2D" uid="uid://c6udsbqf804w3" path="res://assets/textures/pociones/pocion azul.png" id="2_iraji"]
+[ext_resource type="Texture2D" uid="uid://k1is4b34e7ox" path="res://assets/textures/pociones/pocion roja.png" id="3_3ete0"]
+[ext_resource type="Texture2D" uid="uid://cf104i6k6la0g" path="res://assets/textures/pociones/pocion vacia.png" id="4_yin5l"]
+[ext_resource type="PackedScene" uid="uid://bbvvidr2qtkpj" path="res://Scenes/TransitionAnimation/transition_animation.tscn" id="6_3ete0"]
+
+[sub_resource type="Animation" id="Animation_tnoeq"]
+resource_name = "Fall potions"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Para Animacion/PocionAmarilla:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.7853982, 1.0471976]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Para Animacion/PocionAzul:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5235988, 0.5235988]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Para Animacion/PocionRoja:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5235988, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Para Animacion/PocionVacia:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.2617994, 0.2617994]
+}
+
+[sub_resource type="Animation" id="Animation_iraji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Para Animacion/PocionAmarilla:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Para Animacion/PocionAzul:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5235988]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Para Animacion/PocionRoja:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5235988]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Para Animacion/PocionVacia:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ete0"]
+_data = {
+&"Fall potions": SubResource("Animation_tnoeq"),
+&"RESET": SubResource("Animation_iraji")
+}
+
+[node name="Menú" type="Node2D" unique_id=1102317315]
+script = ExtResource("1_iraji")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1409187127]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=436279557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1157847312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.86708456, 0.7975972, 0.9925031, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=167781719]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 124.0
+offset_bottom = 239.0
+rotation = -0.2617994
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=685169173]
+layout_mode = 2
+text = "Play"
+
+[node name="CredditsButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=492041959]
+layout_mode = 2
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1762896801]
+layout_mode = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1093233844]
+layout_mode = 0
+offset_left = 8.000001
+offset_top = 22.000002
+offset_right = 77.0
+offset_bottom = 45.0
+rotation = -0.2617994
+text = "Ale Toxic"
+
+[node name="Para Animacion" type="Node2D" parent="CanvasLayer/Control" unique_id=1569779884]
+
+[node name="PocionAmarilla" type="Sprite2D" parent="CanvasLayer/Control/Para Animacion" unique_id=11367331]
+position = Vector2(257.00003, 103.00001)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_tnoeq")
+
+[node name="PocionAzul" type="Sprite2D" parent="CanvasLayer/Control/Para Animacion" unique_id=762669805]
+position = Vector2(172, 139)
+rotation = -0.5235988
+texture = ExtResource("2_iraji")
+
+[node name="PocionRoja" type="Sprite2D" parent="CanvasLayer/Control/Para Animacion" unique_id=1607014349]
+position = Vector2(265, 30.000008)
+rotation = 0.5235988
+texture = ExtResource("3_3ete0")
+
+[node name="PocionVacia" type="Sprite2D" parent="CanvasLayer/Control/Para Animacion" unique_id=784530202]
+position = Vector2(191, 52)
+rotation = -0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_yin5l")
+
+[node name="AnimationMenu" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=2096255374]
+libraries/ = SubResource("AnimationLibrary_3ete0")
+autoplay = &"Fall potions"
+
+[node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("6_3ete0")]
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/CredditsButton" to="." method="_on_creddits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -114,7 +114,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "Danger:"
 
-[node name="IdealTemperature" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=643639837]
+[node name="Danger" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=643639837]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
 text = "No"

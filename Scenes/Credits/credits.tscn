@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dmuyrqk826ilv"]
 
+[ext_resource type="Script" uid="uid://h25tg7xhc6r4" path="res://Scenes/Credits/credits.gd" id="1_4hn7j"]
 [ext_resource type="Texture2D" uid="uid://toadg1sgakao" path="res://assets/textures/dummy/bro1.png" id="1_4lsct"]
 [ext_resource type="Texture2D" uid="uid://bti8yulsetgte" path="res://assets/textures/dummy/loco.png" id="2_ut8rr"]
 [ext_resource type="Texture2D" uid="uid://cytjb2710ikq7" path="res://assets/textures/dummy/teacher1.png" id="3_4hn7j"]
@@ -72,6 +73,7 @@ animations = [{
 }]
 
 [node name="Credits" type="Node2D" unique_id=1428461548]
+script = ExtResource("1_4hn7j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=877665599]
 
@@ -148,3 +150,5 @@ theme_override_font_sizes/font_size = 7
 text = "Soundtracks: blawal"
 
 [node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("4_ut8rr")]
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

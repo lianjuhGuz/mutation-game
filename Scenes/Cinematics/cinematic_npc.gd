@@ -6,6 +6,7 @@ var dialogue1 = preload("uid://b8rg51nk2vt7o")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.health_points = 100
 	if GameManager.current_level == 1:
 		print("primer dialogo, para el primer nivel")
 		await get_tree().create_timer(1).timeout
@@ -55,7 +56,7 @@ func _ready() -> void:
 		await get_tree().create_timer(1).timeout
 		DialogueManager.show_dialogue_balloon(dialogue1, "ThankYouForPlay")
 		await DialogueManager.dialogue_ended
-		get_tree().change_scene_to_file("Credits")
+		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

@@ -96,12 +96,14 @@ func _on_pc_state_win_level() -> void:
 
 func _on_npc_emit_effects(efectos: Array) -> void:
 	await pc_state.timer_progress.timeout
+	
 	print("efecto dominante:", dominant_effect)
 	
 	if efectos == combinacion_req:
 		print("efectos:", efectos)
 		print("los efectos requeridos concuerdan")
 		print("ganaste el juego, bien hecho")
+		npc.button.hide()
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(camera_2d, "global_position", Vector2(157, 90), 1)

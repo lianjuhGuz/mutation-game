@@ -9,6 +9,7 @@ class_name Pc
 @onready var timer_progress: Timer = $TimerProgress
 @onready var timer_lose: Timer = $TimerLose
 @onready var time_label: Label = $"Time label"
+@onready var danger: Label = $"ColorRect4/VBoxContainer/Danger Indicator/Danger"
 
 var max_temp_range: float = GameManager.better_temperature + 1.2
 var min_temp_range: float = GameManager.better_temperature - 1.2
@@ -38,9 +39,11 @@ func _process(delta: float) -> void:
 	if timer_lose.is_stopped() and timer_progress.is_stopped():
 		print("todo bien papu, inyecta")
 		in_progress = false
+		danger.text = "No"
 		
 	else:
 		print("cuidado papu, falta tiempo")
+		danger.text = "Yes"
 		
 		if not timer_lose.is_stopped():
 			print("timer_lose está activo")

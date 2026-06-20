@@ -46,12 +46,20 @@ func _ready() -> void:
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		Input.set_custom_mouse_cursor(preload("uid://bei8lx0f5n71p"))
+	pass
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		#Input.set_custom_mouse_cursor(preload("uid://bei8lx0f5n71p"))
 		
-	else:
-		Input.set_custom_mouse_cursor(cursor_image)
+	#else:
+		#Input.set_custom_mouse_cursor(cursor_image)
 
+#para que no se buguee en la web, ojalá sirva
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			Input.set_custom_mouse_cursor(cursor_image)
+		else:
+			Input.set_custom_mouse_cursor(preload("uid://bei8lx0f5n71p"))
 
 func _on_jeringa_set_effect(efecto: String) -> void:
 	#si se puede inyectar, hacemos una comprobación. octava fase

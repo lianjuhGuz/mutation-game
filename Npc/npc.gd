@@ -23,6 +23,8 @@ func _ready() -> void:
 		sprite.play("brocoli_default")
 		
 	elif GameManager.current_level == 3:
+		sprite.scale = Vector2(0.6, 0.6)
+		print("Escala del sprite del profe: ", sprite.scale)
 		sprite.play("teacher_default")
 		
 	elif GameManager.current_level == 4:
@@ -46,7 +48,7 @@ func añadir_efecto(efecto: String):
 		
 	if efecto == "Alexidium":
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "self_modulate", Color(1.0, 0.0, 0.0, 1.0), 10)
+		tween.tween_property(sprite, "scale", Vector2(sprite.scale.x * 1.5, sprite.scale.y * 1.5), 10)
 		print("Alexidium añadido")
 		current_effects.append("Alexidium")
 		print("efectos: ", current_effects)
@@ -54,21 +56,23 @@ func añadir_efecto(efecto: String):
 	elif efecto == "Lianjuhm":
 		print("Lianjuhm añadido")
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "scale", Vector2(0.7, 0.7), 10)
+		tween.tween_property(sprite, "modulate", Color(0.996, 0.0, 0.0, 1.0), 10)
 		current_effects.append("Lianjuhm")
 		print("efectos: ", current_effects)
 	
 	elif efecto == "Blawaxim":
 		print("Blawaxim añadido")
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "self_modulate", Color(0.655, 0.152, 0.496, 1.0), 10)
+		tween.tween_property(sprite, "scale", Vector2(sprite.scale.x *1.3, sprite.scale.y * 1.1), 10)
 		current_effects.append("Blawaxim")
 		print("efectos: ", current_effects)
+		print("tamaño del sprite nuevo: ", sprite.scale)
 		
 	elif efecto == "Zobyxa":
 		print("Zobyxa añadido")
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "scale", Vector2(0.3, 0.7), 10)
+		tween.tween_property(sprite, "self_modulate", Color(0.548, 0.174, 0.035, 1.0), 10)
+		tween.tween_property(sprite, "self_modulate", Color(0.185, 0.564, 0.357, 1.0), 10)
 		current_effects.append("Zobyxa")
 		print("Efectos: ", current_effects)
 		

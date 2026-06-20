@@ -138,7 +138,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.86708456, 0.7975972, 0.9925031, 1)
+color = Color(0.20784314, 0.4392157, 0.5294118, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=167781719]
 layout_mode = 0
@@ -201,6 +201,16 @@ texture = ExtResource("6_yin5l")
 [node name="AnimationMenu" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=2096255374]
 libraries/ = SubResource("AnimationLibrary_3ete0")
 autoplay = &"Fall potions"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=1208257061]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 170.0
+offset_right = 318.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("2_yin5l")
+theme_override_font_sizes/font_size = 5
+text = "By: Lianjuh"
 
 [node name="TransitionAnimation" parent="." unique_id=228321314 instance=ExtResource("6_3ete0")]
 

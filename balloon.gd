@@ -1,6 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+#Intentando replicar lo del tuto
+@onready var talk_sound: AudioStreamPlayer = %TalkSound
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -21,7 +23,7 @@ extends CanvasLayer
 @export var skip_action: StringName = &"ui_cancel"
 
 ## A sound player for voice lines (if they exist).
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -219,4 +221,4 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 #Siguiendo la lógica del video de nathan, el creador de este plugin
 @warning_ignore("unused_parameter")
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
-	pass # Replace with function body.
+	talk_sound.play()

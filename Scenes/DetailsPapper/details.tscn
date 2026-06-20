@@ -109,7 +109,8 @@ text = "[b]Alexidium[/b]: It increases the size of the body. It requires a tempe
 
 [b]Blawaxim[/b]: It increases the subject's physical strength and muscle density. It requires a temperature of 40°C to take effect.
 
-[b]Zobyxa[/b]: It stimulates plant-like growth across the body, causing leaves, vines, and roots to emerge from the skin. It requires a temperature of 22°C to take effect.
+[b]Zobyxa[/b]: It stimulates plant-like growth across the body, causing leaves, vines, and roots to emerge and it heals damaged skin.
+. It requires a temperature of 22°C to take effect. 
 
 [b]Fresquixiu[/b]: It enhances brain activity and cognitive functions, greatly improving intelligence and memory. It requires a temperature of 11°C to take effect."
 fit_content = true

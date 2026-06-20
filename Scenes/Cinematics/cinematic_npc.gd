@@ -3,6 +3,8 @@ extends Node2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
 var dialogue1 = preload("uid://b8rg51nk2vt7o")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,6 +59,12 @@ func _ready() -> void:
 		await get_tree().create_timer(1).timeout
 		DialogueManager.show_dialogue_balloon(dialogue1, "ThankYouForPlay")
 		await DialogueManager.dialogue_ended
+		animation_player.play("Close Eyes")
+		await  animation_player.animation_finished
+		DialogueManager.show_dialogue_balloon(dialogue1, "GameOver")
+		await DialogueManager.dialogue_ended
+		SoundManager.play_sfx(preload("uid://d2cpicqtv0opc"))
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

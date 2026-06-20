@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
 [ext_resource type="FontFile" uid="uid://cyyv6lb7df5ml" path="res://fonts/press_start_2p/PressStart2P.ttf" id="2_wxbh2"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_1j1j0"]
+[ext_resource type="AudioStream" uid="uid://dtpl63am2cmm6" path="res://Songs/freesound_community-bllrr-text-loop-82399.ogg" id="5_wxbh2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -206,8 +207,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_wxbh2")
 text = "Response Example"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1682441679]
+[node name="TalkSound" type="AudioStreamPlayer" parent="." unique_id=1682441679]
 unique_name_in_owner = true
+stream = ExtResource("5_wxbh2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1674504310]
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

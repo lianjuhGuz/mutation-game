@@ -7,7 +7,7 @@ var music_tween: Tween
 var footsteps_tween: Tween
 
 	
-@warning_ignore("unused_parameter")
+@warning_ignore("unused_parameter", "shadowed_variable_base_class")
 func play_music(stream: AudioStream, fade_time := 1.5):
 	
 	if music.stream == stream:
@@ -46,6 +46,7 @@ func stop_music(fade_time := 1.5):
 
 
 #SFX
+@warning_ignore("unused_parameter", "shadowed_variable_base_class")
 func play_sfx(stream: AudioStream, volume_db := -5):
 	sfx.volume_db = volume_db
 	sfx.stream = stream

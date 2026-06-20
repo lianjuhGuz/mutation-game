@@ -87,7 +87,7 @@ func _ready() -> void:
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
 
-
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
@@ -215,3 +215,8 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+#Siguiendo la lógica del video de nathan, el creador de este plugin
+@warning_ignore("unused_parameter")
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	pass # Replace with function body.

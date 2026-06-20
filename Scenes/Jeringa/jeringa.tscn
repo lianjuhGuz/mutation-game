@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://de4f7c6m5muxe"]
 
 [ext_resource type="Script" uid="uid://b8rp4dl7mtiqm" path="res://Scenes/Jeringa/jeringa.gd" id="1_iu4tj"]
-[ext_resource type="Texture2D" uid="uid://cj3ptyl1fluig" path="res://assets/jeringaBase.png" id="2_nmdcl"]
+[ext_resource type="Texture2D" uid="uid://molpbnhuyj6v" path="res://assets/texturesrework/inyecciones/inyeccion vacia.png" id="2_nmdcl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgcc"]
 

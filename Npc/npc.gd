@@ -72,11 +72,11 @@ func añadir_efecto(efecto: String):
 		current_effects.append("Zobyxa")
 		print("Efectos: ", current_effects)
 		
-	elif efecto == "Homoalexiu":
-		print("Homoalexiu añadido")
+	elif efecto == "Fresquixiu":
+		print("Fresquixiu añadido")
 		var tween = get_tree().create_tween()
 		tween.tween_property(sprite, "scale", Vector2(-1, -1), 10)
-		current_effects.append("Homoalexiu")
+		current_effects.append("Fresquixiu")
 		print("efectos: ", current_effects)
 	
 	elif efecto == "null":
@@ -125,7 +125,7 @@ func start_challengue_temperature():
 	elif dominant_effect == "Zobyxa":
 		GameManager.better_temperature = 22
 		
-	elif dominant_effect == "Homoalexiu":
+	elif dominant_effect == "Fresquixiu":
 		GameManager.better_temperature = 11
 	
 	else:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlmtg3i44fyo2"]
 
-[ext_resource type="Texture2D" uid="uid://bjihgx2vxhak4" path="res://assets/table.png" id="1_lk2dl"]
 [ext_resource type="Script" uid="uid://8bk18hnic6i8" path="res://Scenes/TableInyections/table_inyections.gd" id="1_rts2x"]
+[ext_resource type="Texture2D" uid="uid://oidy8pwsg2d0" path="res://assets/textures/mapa/mesa nuevo.png" id="2_rts2x"]
 [ext_resource type="PackedScene" uid="uid://cgt4l164p6raf" path="res://Scenes/Inyection/inyection.tscn" id="2_xq7qs"]
 
 [node name="TableInyections" type="Node2D" unique_id=1464634949]
@@ -12,7 +12,7 @@ script = ExtResource("1_rts2x")
 [node name="Table" type="Sprite2D" parent="." unique_id=1749036796]
 position = Vector2(2.6315641, 15.868423)
 scale = Vector2(1.3572316, 1)
-texture = ExtResource("1_lk2dl")
+texture = ExtResource("2_rts2x")
 
 [node name="Inyection" parent="." unique_id=1857755230 instance=ExtResource("2_xq7qs")]
 position = Vector2(-102.63159, -52.63158)
@@ -37,7 +37,7 @@ efecto = "Zobyxa"
 [node name="Inyection5" parent="." unique_id=453927712 instance=ExtResource("2_xq7qs")]
 position = Vector2(105.26317, -46.05263)
 scale = Vector2(0.725, 0.725)
-efecto = "Homoalexiu"
+efecto = "Fresquixiu"
 
 [connection signal="insertar_en_jeringa" from="Inyection" to="." method="_on_inyection_insertar_en_jeringa"]
 [connection signal="insertar_en_jeringa" from="Inyection2" to="." method="_on_inyection_insertar_en_jeringa"]

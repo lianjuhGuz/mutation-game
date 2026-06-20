@@ -6,7 +6,7 @@ class_name Room
 @onready var pc_state: Pc = $RoomSprite3/PcState
 @onready var camera_2d: Camera2D = $Camera2D
 
-var cursor_image = preload("uid://dr3putlqllhw8")
+var cursor_image = preload("uid://d1u2y3vrmukm2")
 var level: int = GameManager.current_level
 var combinacion_req: Array = []
 var dominant_effect: String = ""
@@ -46,7 +46,11 @@ func _ready() -> void:
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	pass
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		Input.set_custom_mouse_cursor(preload("uid://bei8lx0f5n71p"))
+		
+	else:
+		Input.set_custom_mouse_cursor(cursor_image)
 
 
 func _on_jeringa_set_effect(efecto: String) -> void:
@@ -70,7 +74,7 @@ func _on_table_inyections_on_inyection_insertar_en_jeringa(efect: Variant) -> vo
 func get_level():
 	print("nivel: ", level)
 	if level == 1:
-		combinacion_req = ["Alexidium" ,"Homoalexiu"]
+		combinacion_req = ["Alexidium" ,"Fresquixiu"]
 		
 	elif level == 2:
 		combinacion_req = ["Zobyxa" ,"Blawaxim"]
@@ -79,7 +83,7 @@ func get_level():
 		combinacion_req = ["Lianjuhm" ,"Alexidium"]
 		
 	elif level == 4:
-		combinacion_req = ["Homoalexiu" ,"Zobyxa"]
+		combinacion_req = ["Fresquixiu" ,"Zobyxa"]
 		
 	else:
 		print("Felicidades, completaste el juego")
@@ -171,7 +175,7 @@ func _on_npc_emitir_efecto_dominante(efecto_dominante: String) -> void:
 		print("Temperatura recomendada alexidium: 10 C")
 		GameManager.better_temperature = 22
 		
-	if dominant_effect == "Homoalexiu":
+	if dominant_effect == "Fresquixiu":
 		print("Temperatura recomendada alexidium: 10 C")
 		GameManager.better_temperature = 11
 	

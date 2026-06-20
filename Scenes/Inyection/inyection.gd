@@ -3,7 +3,7 @@ class_name Inyection
 
 @export_group("Datos Necesarios")
 
-@export_enum("Alexidium", "Lianjuhm", "Blawaxim", "Zobyxa", "Homoalexiu") var efecto: String
+@export_enum("Alexidium", "Lianjuhm", "Blawaxim", "Zobyxa", "Fresquixiu") var efecto: String
 @onready var pocion: Sprite2D = $Pocion
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var name_injection: Label = $Hoja/NameInjection
@@ -17,24 +17,24 @@ signal insertar_en_jeringa(efecto: String)
 
 func _ready() -> void:
 	if efecto == "Alexidium":
-		pocion.texture = preload("uid://vqqigxgj7jwj")
+		pocion.texture = preload("uid://cl300i73wmfuy")
 		name_injection.text = "Alexidium"
 		
 	elif efecto == "Lianjuhm":
-		pocion.texture = preload("uid://c6udsbqf804w3")
+		pocion.texture = preload("uid://blg0iii2lcolq")
 		name_injection.text = "Lianjuhm"
 		
 	elif efecto == "Blawaxim":
-		pocion.texture = preload("uid://k1is4b34e7ox")
+		pocion.texture = preload("uid://bjlen5pkexdqq")
 		name_injection.text = "Blawaxim"
 		
 	elif efecto == "Zobyxa":
-		pocion.texture = preload("uid://byn0ud1e4076c")
+		pocion.texture = preload("uid://dbag57gamlvcy")
 		name_injection.text = "Zobyxa"
 		
-	elif efecto == "Homoalexiu":
-		pocion.texture = preload("uid://bbhonbinb3co3")
-		name_injection.text = "Homoalexiu"
+	elif efecto == "Fresquixiu":
+		pocion.texture = preload("uid://blabljvcj0a55")
+		name_injection.text = "Fresquixiu"
 		
 	else:
 		pocion.texture = preload("uid://cf104i6k6la0g")

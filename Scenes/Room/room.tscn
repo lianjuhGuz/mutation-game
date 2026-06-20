@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://c3an3jujvoi4c"]
 
 [ext_resource type="Script" uid="uid://bx0pn2pdtc62d" path="res://Scenes/Room/room.gd" id="1_gtrrj"]
-[ext_resource type="Texture2D" uid="uid://bgpt51bhaojtw" path="res://assets/Room Sprite.png" id="1_ogljc"]
 [ext_resource type="PackedScene" uid="uid://de4f7c6m5muxe" path="res://Scenes/Jeringa/jeringa.tscn" id="2_8ln5v"]
 [ext_resource type="PackedScene" uid="uid://dlmtg3i44fyo2" path="res://Scenes/TableInyections/table_inyections.tscn" id="3_2etwf"]
+[ext_resource type="Texture2D" uid="uid://p5d72tx0l8ou" path="res://assets/texturesrework/mapa/fondo.png" id="3_titqu"]
+[ext_resource type="Texture2D" uid="uid://xapvfd3rw7in" path="res://assets/texturesrework/mapa/mesa antigua.png" id="4_iep4k"]
 [ext_resource type="PackedScene" uid="uid://c76gmqd4q56ys" path="res://Scenes/DetailsPapper/details.tscn" id="5_epreh"]
 [ext_resource type="PackedScene" uid="uid://b3h46grt7by5x" path="res://Scenes/Pc/pc_state.tscn" id="5_l3uah"]
 [ext_resource type="PackedScene" uid="uid://bgxc0et22anfe" path="res://Npc/npc.tscn" id="5_vyol7"]
-[ext_resource type="Texture2D" uid="uid://dj353pf4nh7sc" path="res://assets/box.png" id="6_36na4"]
 [ext_resource type="Script" uid="uid://bhtr5n58khula" path="res://Scenes/Room/set_jeringa.gd" id="6_rsgts"]
 [ext_resource type="Texture2D" uid="uid://bwwdapt0en3df" path="res://assets/papper.png" id="7_kadeg"]
 [ext_resource type="Script" uid="uid://dvdb3dqci6g1h" path="res://Scenes/Room/trash.gd" id="7_sclbd"]
 [ext_resource type="Texture2D" uid="uid://cj3ptyl1fluig" path="res://assets/jeringaBase.png" id="8_1elsv"]
 [ext_resource type="Texture2D" uid="uid://c3emkjahljwwe" path="res://assets/TrashSprite.png" id="8_36na4"]
+[ext_resource type="Texture2D" uid="uid://vevm1v7fk6s5" path="res://assets/texturesrework/mapa/caja.png" id="10_iep4k"]
 [ext_resource type="Script" uid="uid://df2dvhlfdgidb" path="res://Scenes/Room/camera_2d.gd" id="11_1elsv"]
-[ext_resource type="Texture2D" uid="uid://bew0adol0q531" path="res://assets/textures/mapa/mesa antiguo.png" id="13_tvqiu"]
 [ext_resource type="PackedScene" uid="uid://bbvvidr2qtkpj" path="res://Scenes/TransitionAnimation/transition_animation.tscn" id="16_88ntm"]
 [ext_resource type="PackedScene" uid="uid://d0f6n48dthpe4" path="res://Scenes/EmergencyButton/emergency_button.tscn" id="17_iep4k"]
 
@@ -103,29 +103,29 @@ script = ExtResource("1_gtrrj")
 
 [node name="RoomSprite" type="Sprite2D" parent="." unique_id=725364231]
 position = Vector2(160, 90)
-texture = ExtResource("1_ogljc")
+texture = ExtResource("3_titqu")
 
 [node name="RoomSprite2" type="Sprite2D" parent="." unique_id=974641644]
 position = Vector2(479, 90)
-texture = ExtResource("1_ogljc")
+texture = ExtResource("3_titqu")
 
 [node name="TableInyections" parent="RoomSprite2" unique_id=1464634949 instance=ExtResource("3_2etwf")]
 position = Vector2(-3, 26)
 
 [node name="RoomSprite3" type="Sprite2D" parent="." unique_id=1018931300]
 position = Vector2(-158, 90)
-texture = ExtResource("1_ogljc")
+texture = ExtResource("3_titqu")
 
 [node name="MesaAntiguo" type="Sprite2D" parent="RoomSprite3" unique_id=1399392470]
 position = Vector2(-4, 65)
 scale = Vector2(1, 1.8214284)
-texture = ExtResource("13_tvqiu")
+texture = ExtResource("4_iep4k")
 
 [node name="PcState" parent="RoomSprite3" unique_id=796834188 instance=ExtResource("5_l3uah")]
 position = Vector2(-27, -38)
 
 [node name="Details" parent="RoomSprite3" unique_id=1970180122 instance=ExtResource("5_epreh")]
-position = Vector2(-140, -11)
+position = Vector2(-133, -12)
 
 [node name="Jeringa" parent="." unique_id=1373762188 instance=ExtResource("2_8ln5v")]
 position = Vector2(214, -23)
@@ -141,7 +141,7 @@ script = ExtResource("6_rsgts")
 
 [node name="Box" type="Sprite2D" parent="SetJeringa" unique_id=1436691683]
 position = Vector2(6.3449707, -3)
-texture = ExtResource("6_36na4")
+texture = ExtResource("10_iep4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SetJeringa" unique_id=670898426]
 position = Vector2(6.3449707, -3)

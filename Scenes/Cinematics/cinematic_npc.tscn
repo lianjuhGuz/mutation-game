@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dnkusodyt76qk"]
 
 [ext_resource type="Script" uid="uid://dqd6bmxssohxw" path="res://Scenes/Cinematics/cinematic_npc.gd" id="1_xvioc"]
-[ext_resource type="Texture2D" uid="uid://dnctjbqfb7m20" path="res://assets/textures/mapa/fondo.png" id="1_yih30"]
 [ext_resource type="Texture2D" uid="uid://bti8yulsetgte" path="res://assets/textures/dummy/loco.png" id="2_g2xht"]
+[ext_resource type="Texture2D" uid="uid://p5d72tx0l8ou" path="res://assets/texturesrework/mapa/fondo.png" id="2_lcdg4"]
 [ext_resource type="PackedScene" uid="uid://bbvvidr2qtkpj" path="res://Scenes/TransitionAnimation/transition_animation.tscn" id="4_lcdg4"]
 
 [sub_resource type="Animation" id="Animation_lcdg4"]
@@ -117,7 +117,7 @@ script = ExtResource("1_xvioc")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=1428357858]
 position = Vector2(160, 90)
-texture = ExtResource("1_yih30")
+texture = ExtResource("2_lcdg4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=343420726]
 libraries/ = SubResource("AnimationLibrary_lcdg4")

@@ -119,19 +119,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=271368258]
 position = Vector2(209.00002, 66)
-scale = Vector2(0.4150944, 0.37676057)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oug0m")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=404047323]
 position = Vector2(128.99998, 139)
-scale = Vector2(0.5188679, 0.45774648)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ft2he")
 autoplay = "default"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=268475037]
 position = Vector2(34, 57.000004)
-scale = Vector2(0.5060119, 0.46794963)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oa3is")
 autoplay = "default"
 

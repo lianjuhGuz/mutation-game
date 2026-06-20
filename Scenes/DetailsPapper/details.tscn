@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://12ttc3oqglp6" path="res://Scenes/DetailsPapper/details.gd" id="1_hquie"]
 [ext_resource type="Texture2D" uid="uid://c3haot3h3fiys" path="res://assets/textures/mapa/hoja.png" id="1_mbjtn"]
+[ext_resource type="FontFile" uid="uid://cyyv6lb7df5ml" path="res://fonts/press_start_2p/PressStart2P.ttf" id="3_17tdv"]
 
 [sub_resource type="Animation" id="Animation_hquie"]
 length = 0.001
@@ -82,26 +83,35 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Hoja" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1139497397]
-visible = false
 z_index = 79
 position = Vector2(157, 85.00001)
 scale = Vector2(1.871951, 1.8015465)
 texture = ExtResource("1_mbjtn")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Hoja" unique_id=61127798]
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Control/Hoja" unique_id=144144460]
+position = Vector2(2.136808, 7.7710967)
+scale = Vector2(1.04, 1.335)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Hoja/Node2D" unique_id=61127798]
 offset_left = -32.586327
-offset_top = -44.961376
+offset_top = -35.525036
 offset_right = 33.654716
-offset_bottom = 42.18597
+offset_bottom = 22.474964
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 3
-theme_override_font_sizes/bold_font_size = 3
+theme_override_fonts/normal_font = ExtResource("3_17tdv")
+theme_override_fonts/bold_font = ExtResource("3_17tdv")
+theme_override_font_sizes/normal_font_size = 2
+theme_override_font_sizes/bold_font_size = 2
 bbcode_enabled = true
 text = "[b]Alexidium[/b]: It increases the size of the body. It requires a temperature of 10°C to take effect.
+
 [b]Lianjuhm[/b]: It raises the body's internal temperature. It requires a temperature of 37°C to take effect.
+
 [b]Blawaxim[/b]: It increases the subject's physical strength and muscle density. It requires a temperature of 40°C to take effect.
+
 [b]Zobyxa[/b]: It stimulates plant-like growth across the body, causing leaves, vines, and roots to emerge from the skin. It requires a temperature of 22°C to take effect.
-[b]Homoalexiu[/b]: It enhances brain activity and cognitive functions, greatly improving intelligence and memory. It requires a temperature of 11°C to take effect."
+
+[b]Fresquixiu[/b]: It enhances brain activity and cognitive functions, greatly improving intelligence and memory. It requires a temperature of 11°C to take effect."
 fit_content = true
 scroll_active = false
 

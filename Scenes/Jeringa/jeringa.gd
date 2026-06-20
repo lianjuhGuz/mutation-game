@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if dentro and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and efecto_actual != null and visible:
 		set_effect.emit(efecto_actual)
 		#changue("null", Color(1.0, 1.0, 1.0, 1.0))
-		jeringa_base.texture = preload("uid://cj3ptyl1fluig")
+		jeringa_base.texture = preload("uid://molpbnhuyj6v")
 		hide()
 	
 	if not visible:
@@ -38,22 +38,22 @@ func changue(efecto: String):
 	#Cambiar textura jeringa
 	
 	if efecto == "Alexidium":
-		jeringa_base.texture = preload("uid://djb8otlxg6drn")
+		jeringa_base.texture = preload("uid://cx37m628shwag")
 		
 	elif efecto == "Lianjuhm":
-		jeringa_base.texture = preload("uid://c6avp6o5hp706")
+		jeringa_base.texture = preload("uid://fdbj14145gmq")
 		
 	elif efecto == "Blawaxim":
-		jeringa_base.texture = preload("uid://c1ckwb70vn31h")
+		jeringa_base.texture = preload("uid://dgjs088asw62w")
 		
 	elif efecto == "Zobyxa":
-		jeringa_base.texture = preload("uid://jiy5rlsjf8m0")
+		jeringa_base.texture = preload("uid://qacqp62ja57v")
 		
-	elif efecto == "Homoalexiu":
-		jeringa_base.texture = preload("uid://ypxmbc5hsnv6")
+	elif efecto == "Fresquixiu":
+		jeringa_base.texture = preload("uid://bqykvuybrj6vr")
 		
 	else:
-		jeringa_base.texture = preload("uid://ctewofp4lyc0j")
+		jeringa_base.texture = preload("uid://molpbnhuyj6v")
 	efecto_actual = efecto
 
 

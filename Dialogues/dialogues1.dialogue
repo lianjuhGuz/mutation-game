@@ -34,7 +34,7 @@ Ale The Doctor: How did your first day go?
 	Ale The Doctor: Waaa, waaa... I am crying now (is sarcasm)
 	...
 Ale The Doctor: you know who is the next person for the treatment
-What?
+You: What?
 => END
 
 
@@ -77,7 +77,7 @@ Tiago: My wife is disappointed in me...
 => END
 
 ~ ThirdLevel1
-You:... Is my teacher
+You: ... Is my teacher
 Julio: Oh student, what are you doing here?
 - I am working part time
 	Julio: Oh, I didnt know you wanted to be a doctor!!
@@ -90,7 +90,7 @@ You: Ok...
 ~ ThirdLevel2
 Julio: My body temperature is low, and I feel more small every day
 Julio: The students make fun of me every day...
-I know
+You: I know
 => END
 
 ~ FourthLevel1

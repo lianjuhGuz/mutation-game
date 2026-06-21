@@ -8,7 +8,7 @@ class_name Pc
 @onready var timer_progress: Timer = $TimerProgress
 @onready var timer_lose: Timer = $TimerLose
 @onready var time_label: Label = $"Time label"
-@onready var danger: Label = $"ColorRect4/VBoxContainer/Danger Indicator/Danger"
+@onready var stability: Label = $"ColorRect4/VBoxContainer/Danger Indicator/Danger"
 
 var max_temp_range: float = GameManager.better_temperature + 1.2
 var min_temp_range: float = GameManager.better_temperature - 1.2
@@ -38,11 +38,11 @@ func _process(delta: float) -> void:
 	if timer_lose.is_stopped() and timer_progress.is_stopped():
 		print("todo bien papu, inyecta")
 		in_progress = false
-		danger.text = "No"
+		stability.text = "Yes"
 		
 	else:
 		print("cuidado papu, falta tiempo")
-		danger.text = "Yes"
+		stability.text = "No"
 		
 		if not timer_lose.is_stopped():
 			print("timer_lose está activo")
@@ -84,7 +84,7 @@ func changue_temperature():
 	progress_health.value = GameManager.health_points/100
 	temperature_air.text = str(GameManager.current_temperature_air, " C")
 	time_label_left = str(int(timer_progress.time_left))
-	time_label.text = "time left: " + time_label_left
+	time_label.text = "time left for stability: " + time_label_left
 
 
 func repeat_changue_temperature_body():

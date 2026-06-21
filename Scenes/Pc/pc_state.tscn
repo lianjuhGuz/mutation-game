@@ -118,13 +118,13 @@ theme_override_constants/separation = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bj3f2")
 theme_override_font_sizes/font_size = 2
-text = "Danger:"
+text = "Is stable:"
 
 [node name="Danger" type="Label" parent="ColorRect4/VBoxContainer/Danger Indicator" unique_id=643639837]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bj3f2")
 theme_override_font_sizes/font_size = 2
-text = "No"
+text = "Yes"
 
 [node name="Health" type="HBoxContainer" parent="ColorRect4/VBoxContainer" unique_id=102116359]
 layout_mode = 2
@@ -214,7 +214,7 @@ offset_right = -17.0
 offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("4_bj3f2")
 theme_override_font_sizes/font_size = 2
-text = "Time left:"
+text = "Time left for stability:"
 
 [connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/Less" to="." method="_on_less_pressed"]
 [connection signal="pressed" from="ColorRect4/VBoxContainer/Air/FirstFirst/First/More" to="." method="_on_more_pressed"]

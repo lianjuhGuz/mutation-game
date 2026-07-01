@@ -159,7 +159,6 @@ theme_override_fonts/font = ExtResource("2_yin5l")
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1762896801]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yin5l")
 text = "Exit"

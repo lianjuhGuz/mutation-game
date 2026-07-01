@@ -168,7 +168,7 @@ offset_right = 316.0
 offset_bottom = 46.0
 theme_override_fonts/font = ExtResource("5_fax7y")
 theme_override_font_sizes/font_size = 6
-text = "Music/sfx by: Blawal"
+text = "Music/sfx by: bl4WAL"
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="CanvasLayer/Control" unique_id=1802538082]
